@@ -1,0 +1,9 @@
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/_colors';
+
+::ng-deep {
+  .drag-handle {
+    .mat-icon-button {
+      background-color: $blue400;
+    }
+  }
+}

@@ -1,0 +1,75 @@
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/_colors';
+
+.event {
+  &-list {
+    border: 1px solid $neutral100;
+    background: $blue300;
+    border-radius: 10px;
+    height: 48px;
+    margin-top: 15px;
+    cursor: grab;
+    transition: 0.3s;
+    display: flex;
+
+    &-type1,
+    &-type2 {
+      flex-direction: column;
+
+      .event-list-column {
+        height: 50%;
+      }
+    }
+
+    &-type3,
+    &-type4 {
+      .event-list-column {
+        width: 50%;
+      }
+    }
+
+    &-type1 {
+      .event-list-column:first-child {
+        border-bottom: 1px solid $neutral100;
+      }
+    }
+
+    &-type2 {
+      flex-direction: column-reverse;
+
+      .event-list-column:first-child {
+        border-top: 1px solid $neutral100;
+      }
+    }
+
+    &-type3 {
+      .event-list-column:first-child {
+        border-right: 1px solid $neutral100;
+      }
+    }
+
+    &-type4 {
+      flex-direction: row-reverse;
+
+      .event-list-column:first-child {
+        border-left: 1px solid $neutral100;
+      }
+    }
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &-column {
+      display: flex;
+      justify-content: center;
+      color: $neutral100;
+      align-items: center;
+    }
+
+    &:hover {
+      box-shadow: 0 6px 10px $menu-color;
+      transform: translateY(-2px);
+      background-color: $blue400;
+    }
+  }
+}

@@ -1,0 +1,16 @@
+<render-html-display-conditions [displayConditions]="value.displayConditions">
+  <div
+    *ngIf="value"
+    class="builder-cursor-default builder-component-content"
+    (click)="onBlockClick($event)"
+    [style.fontSize.px]="value.fontSize"
+    [style.line-height.%]="value.lineHeight"
+    [style.text-align]="value.textAlign"
+    [style.color]="value.textColor"
+    [style.paddingTop.px]="value.paddingTop"
+    [style.paddingRight.px]="value.paddingRight"
+    [style.paddingBottom.px]="value.paddingBottom"
+    [style.paddingLeft.px]="value.paddingLeft">
+    {{'{{' + value.value + '}}'}}
+  </div>
+</render-html-display-conditions>

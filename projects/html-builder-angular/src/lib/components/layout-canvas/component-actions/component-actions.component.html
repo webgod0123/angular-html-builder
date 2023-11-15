@@ -1,0 +1,6 @@
+<div class="builder-component-action">
+  <action-icon [icon]="'file_copy'" (click)="duplicate($event)"></action-icon>
+  <action-icon [icon]="locked ? 'lock' : 'lock_open'" (click)="lock($event)"></action-icon>
+  <action-icon *ngIf="isTemplate" [icon]="'add'" (click)="createComponent($event)"></action-icon>
+  <action-icon [icon]="'delete_outline'" (click)="remove($event)"></action-icon>
+</div>

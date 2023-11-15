@@ -1,0 +1,91 @@
+<form [formGroup]="form">
+  <!-- TODO: Implement this later
+  <mat-expansion-panel class="form-section" [expanded]="true">
+    <mat-expansion-panel-header class="form-section-title">
+      <mat-panel-title>
+        {{ "admin_email_template_columns" | translate }}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div class="form-section-content">
+      <columns-list class="columns-list"></columns-list>
+    </div>
+  </mat-expansion-panel>
+  -->
+
+  <mat-expansion-panel class="form-section" [expanded]="true">
+    <mat-expansion-panel-header class="form-section-title">
+      <mat-panel-title>
+        {{ "admin_email_template_columns_properties" | translate }}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <mat-tab-group formArrayName="columns">
+      <ng-container *ngFor="let columnForm of columnsFormArray.controls; let i = index">
+        <mat-tab [label]="'Col ' + (i + 1)" [formGroupName]="i">
+          <div class="form-section-content">
+            <div class="form-section-option">
+              <color-picker-input
+                formControlName="backgroundColor"
+                label="{{ 'admin_email_template_background_color' | translate }}"></color-picker-input>
+            </div>
+            <div class="form-section-option">
+              <padding-form (setPadding)="setColumnPadding($event, i)" [padding]="getColumnPadding(i)"></padding-form>
+            </div>
+            <div class="form-section-option">
+              <border-form (setBorder)="setColumnBorder($event, i)" [border]="getColumnBorder(i)"></border-form>
+            </div>
+          </div>
+        </mat-tab>
+      </ng-container>
+    </mat-tab-group>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel class="form-section" [expanded]="true">
+    <mat-expansion-panel-header class="form-section-title">
+      <mat-panel-title>
+        {{ "admin_email_template_rows_properties" | translate }}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div class="form-section-content">
+      <div class="form-section-option">
+        <color-picker-input
+          formControlName="backgroundColor"
+          label="{{ 'admin_email_template_background_color' | translate }}"></color-picker-input>
+      </div>
+      <div class="form-section-option">
+        <color-picker-input
+          formControlName="contentBackgroundColor"
+          label="{{ 'admin_email_template_content_background_color' | translate }}"></color-picker-input>
+      </div>
+      <div class="form-section-option">
+        <div class="form-section-option-header">
+          <div>{{ "admin_email_template_background_image" | translate }}</div>
+          <image-upload-form (uploadImageFile)="uploadImageFile($event)"></image-upload-form>
+        </div>
+        <input-field
+          label="{{ 'admin_email_template_background_image' | translate }}"
+          formControlName="backgroundImageUrl"></input-field>
+      </div>
+      <div class="form-section-option">
+        <background-image-repeat-form
+          [backgroundRepeat]="this.form.get('backgroundRepeat')?.value"
+          (backgroundImageRepeat)="setBackgroundImageRepeat($event)"></background-image-repeat-form>
+      </div>
+
+      <div class="form-section-option">
+        <div class="form-section-option-header">
+          <div>{{ "admin_email_template_background_position" | translate }}</div>
+        </div>
+        <background-position-form
+          [initPosition]="this.form.get('backgroundPosition')?.value"
+          (setBackgroundPosition)="setBackgroundPosition($event)"></background-position-form>
+      </div>
+
+      <div class="form-section-option">
+        <padding-form (setPadding)="setPadding($event)" [padding]="padding"></padding-form>
+      </div>
+    </div>
+  </mat-expansion-panel>
+</form>

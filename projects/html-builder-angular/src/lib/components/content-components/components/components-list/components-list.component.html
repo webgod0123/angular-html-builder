@@ -1,0 +1,44 @@
+<ng-container>
+  <div class="editor-layer-title">{{ "admin_ticket_template_image_list_title" | translate }}</div>
+
+  <form [formGroup]="form" class="search-form">
+    <div class="form-section-option">
+      <div class="form-section-option-header">
+        <input-field
+          label="{{ 'search' | translate }}" formControlName="name"></input-field>
+      </div>
+    </div>
+    <div [class.active]="isShowAllFilter" class="additional-filters">
+      <div class="form-section-option">
+        <select-field
+          [options]="statusList"
+          formControlName="status"
+          valueKey="key"
+          class="select-status"
+          labelKey="key"></select-field>
+      </div>
+    </div>
+    <a (click)="toggleForm()">
+      {{ (!isShowAllFilter ? 'admin_email_template_show_filter' : 'admin_email_template_hide_filter') | translate }}
+    </a>
+  </form>
+
+  <div class="components-container">
+    <ng-scrollbar [autoHeightDisabled]="false" trackClass="editor-scrollbar">
+      <ul class="component-items">
+        <li *ngFor="let component of componentList" class="component-item-container">
+          <image-card
+            [src]="getImagePath(component.thumbnailPath)"
+            [hasImage]="!!component.thumbnailPath"
+            (click)="onSelectComponent(component)">
+          </image-card>
+        </li>
+      </ul>
+    </ng-scrollbar>
+
+    <div class="loading-container" *ngIf="isLoading">
+      <editor-loader></editor-loader>
+    </div>
+  </div>
+
+</ng-container>

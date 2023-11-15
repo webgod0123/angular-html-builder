@@ -1,0 +1,13 @@
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/_colors';
+
+.toggle-switch-element {
+  display: flex;
+  align-items: center;
+
+  &-label {
+    font-size: 14px;
+    line-height: 14px;
+    color: $blue100;
+    margin-left: 16px;
+  }
+}

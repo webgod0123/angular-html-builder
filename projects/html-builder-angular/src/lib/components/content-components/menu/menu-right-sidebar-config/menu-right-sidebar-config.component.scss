@@ -1,0 +1,45 @@
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/_colors';
+
+:host {
+  .form-section-option {
+    margin-top: 12px;
+
+    &-header {
+      padding: 0;
+    }
+  }
+}
+
+.dndList {
+  transition: all 300ms ease;
+
+  &.dndDragover {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
+
+.dndDraggingSource {
+  display: none;
+}
+
+.menu-dnd-placeholder {
+  display: block;
+  min-height: 300px;
+}
+
+.menu-item {
+  padding: 4px 16px 16px;
+  margin: 8px 0;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid $neutral900;
+}
+
+.menu-add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  color: $neutral100;
+}

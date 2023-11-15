@@ -1,0 +1,10 @@
+<div
+  *ngIf="value"
+  (click)="onBlockClick($event)"
+  class="builder-component-content"
+  [style.padding-top.px]="value.containerPadding.paddingTop"
+  [style.padding-right.px]="value.containerPadding.paddingRight"
+  [style.padding-bottom.px]="value.containerPadding.paddingBottom"
+  [style.padding-left.px]="value.containerPadding.paddingLeft">
+  <div [innerHtml]="value.htmlContent | safeHtml"></div>
+</div>

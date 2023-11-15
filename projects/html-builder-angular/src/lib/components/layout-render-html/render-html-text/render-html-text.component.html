@@ -1,0 +1,23 @@
+<render-html-display-conditions [displayConditions]="value.displayConditions">
+  <div [innerHTML]="getStyleTag('div', id, value.inheritBodyStyles, value.linkColor, value.underline) | safeHtml"></div>
+
+  <div
+    *ngIf="value"
+    [attr.data-id]="id"
+    (click)="onBlockClick($event)"
+    class="builder-component-content"
+    [style.font-family]="value.fontFamily"
+    [style.fontSize.px]="value.fontSize"
+    [style.font-weight]="value.fontWeight"
+    [style.line-height.%]="value.lineHeight"
+    [style.text-align]="value.textAlign"
+    [style.color]="value.textColor"
+    [style.padding-top.px]="value.containerPadding.paddingTop"
+    [style.padding-right.px]="value.containerPadding.paddingRight"
+    [style.padding-bottom.px]="value.containerPadding.paddingBottom"
+    [style.padding-left.px]="value.containerPadding.paddingLeft">
+    <inline-editor [value]="value.text"
+                   [id]="id"
+                   (onEditFinished)="updateTextBlockText($event)"></inline-editor>
+  </div>
+</render-html-display-conditions>

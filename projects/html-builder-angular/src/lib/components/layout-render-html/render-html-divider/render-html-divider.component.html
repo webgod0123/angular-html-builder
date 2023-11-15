@@ -1,0 +1,20 @@
+<render-html-display-conditions
+  [displayConditions]="value.displayConditions">
+  <div
+    *ngIf="value"
+    (click)="onBlockClick($event)"
+    [style.text-align]="value.textAlign"
+    class="builder-component-content"
+    [style.line-height]="0"
+    [style.paddingTop.px]="value.paddingTop"
+    [style.paddingRight.px]="value.paddingRight"
+    [style.paddingBottom.px]="value.paddingBottom"
+    [style.paddingLeft.px]="value.paddingLeft">
+    <div
+      [style.display]="'inline-block'"
+      [style.width.%]="value.width"
+      [style.borderTopWidth.px]="value.borderTopWidth"
+      [style.borderTopStyle]="value.borderTopStyle"
+      [style.borderTopColor]="value.borderTopColor"></div>
+  </div>
+</render-html-display-conditions>

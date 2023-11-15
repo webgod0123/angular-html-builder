@@ -1,0 +1,8 @@
+<ng-container>
+  <div class="editor-layer-title">{{ "admin_ticket_template_variable_list_title" | translate }}</div>
+  <div class="editor-layer-content" *ngIf="(variableList$ | async) as variableList">
+    <mat-list>
+      <mat-list-item [dndDraggable]="variable" [dndType]="ContentComponentType.VARIABLE" [dndEffectAllowed]="'copy'" *ngFor="let variable of variableList">{{ variable.label }}</mat-list-item>
+    </mat-list>
+  </div>
+</ng-container>

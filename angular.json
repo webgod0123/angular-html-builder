@@ -1,0 +1,171 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "@interticket/html-builder-angular": {
+      "projectType": "library",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/html-builder-angular",
+      "sourceRoot": "projects/html-builder-angular/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/html-builder-angular/tsconfig.lib.json",
+            "project": "projects/html-builder-angular/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/html-builder-angular/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/html-builder-angular/src/test.ts",
+            "tsConfig": "projects/html-builder-angular/tsconfig.spec.json",
+            "karmaConfig": "projects/html-builder-angular/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/html-builder-angular/src/**/*.ts",
+              "projects/html-builder-angular/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "ticket-template-editor-frontend": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "allowedCommonJsDependencies": [
+              "slugify",
+              "bezier-easing",
+              "codemirror/mode/htmlmixed/htmlmixed",
+              "codemirror/mode/markdown/markdown",
+              "@ckeditor/ckeditor5-build-inline"
+            ],
+            "outputPath": "dist/ticket-template-editor-frontend",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "src/favicon.ico",
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "projects/html-builder-angular/assets",
+                "output": "/assets/"
+              }
+            ],
+            "styles": ["src/styles.scss"]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            },
+            "development": {
+              "optimization": false,
+              "sourceMap": true,
+              "namedChunks": true,
+              "extractLicenses": false,
+              "vendorChunk": true,
+              "buildOptimizer": false,
+              "budgets": []
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ticket-template-editor-frontend:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ticket-template-editor-frontend:build:production"
+            },
+            "development": {
+              "browserTarget": "ticket-template-editor-frontend:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ticket-template-editor-frontend:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.scss"],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "@interticket/html-builder-angular",
+  "cli": {
+    "analytics": false
+  }
+}

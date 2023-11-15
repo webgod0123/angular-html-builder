@@ -1,0 +1,38 @@
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/_colors';
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/sizes';
+
+::ng-deep .editor-layer {
+  width: $large-left-menu-width;
+  height: 100%;
+  background: $blue400;
+  border-right: 1px solid $neutral900;
+  margin-left: -$large-left-menu-width;
+  transition: 0.3s;
+  padding: 16px 0;
+  color: $neutral100;
+
+  &.active {
+    margin-left: 0;
+  }
+
+  &-title {
+    color: $blue200;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 0 15px;
+  }
+
+  &-content {
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    &.padding {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    .upload-button {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,117 @@
+<render-html-display-conditions
+  [displayConditions]="value.displayConditions">
+  <div [style.display]="'none'">{{EventContentTags.START}}</div>
+  <div
+    *ngIf="value"
+    (click)="onBlockClick($event)"
+    class="builder-component-content"
+    [style.display]="'flex'"
+    [style.flex-direction]="FlexDirectionMap[value.eventColumnType]"
+    [style.text-align]="value.textAlign"
+    [style.color]="value.textColor"
+    [style.line-height.%]="value.lineHeight"
+    [style.paddingTop.px]="value.paddingTop"
+    [style.paddingRight.px]="value.paddingRight"
+    [style.paddingBottom.px]="value.paddingBottom"
+    [style.paddingLeft.px]="value.paddingLeft">
+    <div class="builder-event-event builder-block-with-label"
+         [style.width]="'100%'">
+      <div [ngClass]="{'builder-event-event-content-placeholder': value.eventRows.length === 0}"
+           [dndDropzone]="dropZoneFor"
+           (dndDrop)="onContentRowsDrop($event, 'event')">
+
+        <render-html-row
+          *ngFor="let row of value.eventRows"
+          [layoutJson]="row"
+          class="builder-component"
+          componentHighlight
+          [componentId]="row.id"
+          (click)="onRowClick($event, row.id)"
+        >
+          <component-actions
+            [locked]="row.values.locked"
+          ></component-actions>
+        </render-html-row>
+
+        <span class="builder-dnd-placeholder" dndPlaceholderRef>
+          {{ "admin_email_template_drop_it_here" | translate }}
+        </span>
+      </div>
+
+      <div class="builder-component-label">{{ "admin_email_template_event_event" | translate }}</div>
+    </div>
+    <div class="builder-event-ticket builder-block-with-label"
+         [style.width]="'100%'">
+      <div [ngClass]="{'builder-event-ticket-content-placeholder': value.ticketTopRows.length === 0}"
+           [dndDropzone]="dropZoneFor"
+           (dndDrop)="onContentRowsDrop($event, 'ticketTop')">
+
+        <render-html-row
+          *ngFor="let row of value.ticketTopRows"
+          [layoutJson]="row"
+          class="builder-component"
+          componentHighlight
+          [componentId]="row.id"
+          (click)="onRowClick($event, row.id)"
+        >
+          <component-actions
+            [locked]="row.values.locked"
+          ></component-actions>
+        </render-html-row>
+
+        <span class="builder-dnd-placeholder" dndPlaceholderRef>
+          {{ "admin_email_template_drop_it_here" | translate }}
+        </span>
+      </div>
+
+      <div [style.display]="'none'">{{TicketContentTags.START}}</div>
+      <div [ngClass]="{'builder-event-ticket-content-placeholder': value.ticketTicketRows.length === 0}"
+           [dndDropzone]="dropZoneFor"
+           (dndDrop)="onContentRowsDrop($event, 'ticket')">
+
+        <render-html-row
+          *ngFor="let row of value.ticketTicketRows"
+          [layoutJson]="row"
+          class="builder-component"
+          componentHighlight
+          [componentId]="row.id"
+          (click)="onRowClick($event, row.id)"
+        >
+          <component-actions
+            [locked]="row.values.locked"
+          ></component-actions>
+        </render-html-row>
+
+        <span class="builder-dnd-placeholder" dndPlaceholderRef>
+          {{ "admin_email_template_drop_it_here" | translate }}
+        </span>
+      </div>
+      <div [style.display]="'none'">{{TicketContentTags.END}}</div>
+
+      <div [ngClass]="{'builder-event-ticket-content-placeholder': value.ticketBottomRows.length === 0}"
+           [dndDropzone]="dropZoneFor"
+           (dndDrop)="onContentRowsDrop($event, 'ticketBottom')">
+
+        <render-html-row
+          *ngFor="let row of value.ticketBottomRows"
+          [layoutJson]="row"
+          class="builder-component"
+          componentHighlight
+          [componentId]="row.id"
+          (click)="onRowClick($event, row.id)"
+        >
+          <component-actions
+            [locked]="row.values.locked"
+          ></component-actions>
+        </render-html-row>
+
+        <span class="builder-dnd-placeholder" dndPlaceholderRef>
+          {{ "admin_email_template_drop_it_here" | translate }}
+        </span>
+      </div>
+
+      <div class="builder-component-label">{{ "admin_email_template_event_ticket" | translate }}</div>
+    </div>
+  </div>
+  <div [style.display]="'none'">{{EventContentTags.END}}</div>
+</render-html-display-conditions>

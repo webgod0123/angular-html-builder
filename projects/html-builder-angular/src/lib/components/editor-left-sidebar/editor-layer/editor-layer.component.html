@@ -1,0 +1,9 @@
+<div class="editor-layer" [ngClass]="{ active: isActiveLayer }">
+  <ng-scrollbar [autoHeightDisabled]="false" trackClass="editor-scrollbar">
+    <columns-left-sidebar-config *ngIf="isBlockActive()"></columns-left-sidebar-config>
+    <variables-left-sidebar-config *ngIf="isVariableActive()"></variables-left-sidebar-config>
+    <image-left-sidebar-config *ngIf="isImageActive()"></image-left-sidebar-config>
+    <components-left-sidebar-config *ngIf="isComponentActive()"></components-left-sidebar-config>
+    <event-left-sidebar-config *ngIf="isEventActive()"></event-left-sidebar-config>
+  </ng-scrollbar>
+</div>

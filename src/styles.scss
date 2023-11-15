@@ -1,0 +1,157 @@
+@use '@angular/material' as mat;
+
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/_colors';
+@import 'node_modules/normalize.css/normalize';
+@import 'foundation-sites/scss/foundation';
+
+@font-face {
+  font-family: Neuron-Bold;
+  src: url('/assets/fonts/neuron-bold.eot');
+  src: url('/assets/fonts/neuron-bold.eot?#iefix') format('embedded-opentype'),
+    url('/assets/fonts/neuron-bold.woff') format('woff'), url('/assets/fonts/neuron-bold.ttf') format('truetype');
+}
+
+@include foundation-global-styles;
+@include foundation-flex-grid;
+@include foundation-flex-classes;
+@include foundation-typography;
+@include foundation-button;
+@include foundation-forms;
+@include foundation-breadcrumbs;
+@include foundation-button-group;
+@include foundation-callout;
+@include foundation-responsive-embed;
+@include foundation-label;
+@include foundation-visibility-classes;
+@include foundation-prototype-classes;
+@include mat.core();
+
+$it-blue: (
+  50: #78e5ff,
+  100: #5db3de,
+  200: #3c83a7,
+  300: #5db3de,
+  400: #5db3de,
+  500: #5db3de,
+  600: #5db3de,
+  700: #5db3de,
+  800: #5db3de,
+  900: #5db3de,
+  A100: #5db3de,
+  A200: #5db3de,
+  A400: #5db3de,
+  A700: #5db3de,
+  contrast: (50: white,
+  100: white,
+  200: white,
+  300: white,
+  400: white,
+  500: white,
+  600: white,
+  700: white,
+  800: white,
+  900: white,
+  A100: white,
+  A200: white,
+  A400: white,
+  A700: white)
+);
+
+$app-primary: mat.define-palette($it-blue, 100, 50, 200);
+$app-accent: mat.define-palette($it-blue, 100, 50, 200);
+
+$it-light-theme-foreground: (
+  base: black,
+  divider: rgba(0 0 0 / 12%),
+  dividers: rgba(0 0 0 / 12%),
+  disabled: rgba(0 0 0 / 38%),
+  disabled-button: rgba(0 0 0 / 26%),
+  disabled-text: rgba(0 0 0 / 38%),
+  hint-text: rgba(0 0 0 / 38%),
+  secondary-text: rgba(0 0 0 / 54%),
+  icon: rgba(0 0 0 / 54%),
+  icons: rgba(0 0 0 / 54%),
+  text: rgba(0 0 0 / 87%),
+  slider-min: rgba(0 0 0 / 87%),
+  slider-off: rgba(0 0 0 / 26%),
+  slider-off-active: rgba(0 0 0 / 38%)
+);
+
+$it-light-theme-background: (
+  status-bar: map_get(mat.$grey-palette, 300),
+  app-bar: map_get(mat.$grey-palette, 100),
+  background: map_get(mat.$grey-palette, 50),
+  hover: rgba(0 0 0 / 4%),
+  card: white,
+  dialog: white,
+  disabled-button: rgba(0 0 0 / 12%),
+  raised-button: white,
+  focused-button: map_get(mat.$grey-palette, 300),
+  selected-button: map_get(mat.$grey-palette, 300),
+  selected-disabled-button: map_get(mat.$grey-palette, 400),
+  disabled-button-toggle: map_get(mat.$grey-palette, 200),
+  unselected-chip: map_get(mat.$grey-palette, 300),
+  disabled-list-option: map_get(mat.$grey-palette, 200)
+);
+
+@function it-light-theme($primary, $accent, $warn: mat.define-palette(mat.$red-palette)) {
+  @return (primary: $primary,
+  accent: $accent,
+  warn: $warn,
+  is-dark: false,
+  foreground: $it-light-theme-foreground,
+  background: $it-light-theme-background );
+}
+
+$app-theme: it-light-theme($app-primary, $app-accent);
+
+@include mat.all-component-themes($app-theme);
+
+body {
+  font-size: 13px;
+  font-family: 'Open Sans', Montserrat, 'Helvetica Neue', helvetica, roboto, arial, sans-serif;
+  font-weight: normal;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.loader-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.it-loader-center {
+  width: 75px;
+  height: 75px;
+  border-width: 4px;
+  border-style: solid;
+  border-color: $primary-color rgb(0 0 0 / 12%) rgb(0 0 0 / 12%);
+  margin: 2px;
+  animation: rotation 1s infinite linear;
+  border-radius: 100%;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.mt-2 {
+  margin-top: 16px;
+}
+
+.d-none {
+  display: none;
+}

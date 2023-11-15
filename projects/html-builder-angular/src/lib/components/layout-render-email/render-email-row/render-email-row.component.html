@@ -1,0 +1,60 @@
+<render-email-display-conditions
+  [displayConditions]="layoutJson.values.displayConditions">
+  <table cellpadding="0"
+    cellspacing="0"
+    border="0"
+    [style.width]="'100%'"
+    [style.background]="layoutJson.values.backgroundColor"
+    [style.padding-top.px]="layoutJson.values.paddingTop"
+    [style.padding-left.px]="layoutJson.values.paddingLeft"
+    [style.padding-right.px]="layoutJson.values.paddingRight"
+    [style.padding-bottom.px]="layoutJson.values.paddingBottom">
+    <tr>
+      <td>
+        <table cellpadding="0"
+          cellspacing="0"
+          border="0"
+          [style.width]="contentWidth"
+          [style.margin]="body?.values?.contentAlignment === 'center' ? '0 auto' : '0'"
+          [style.background]="layoutJson.values.contentBackgroundColor"
+          [style.background-image]="backgroundImage"
+          [style.background-repeat]="layoutJson.values.backgroundRepeat"
+          [style.background-position]="layoutJson.values.backgroundPosition">
+          <tr>
+            <td [style.display]="'flex'">
+              <table *ngFor="let column of layoutJson.columns"
+                [style.width]="calculateWidthPercent(column, layoutJson.columns)"
+                [style.background]="column.values.backgroundColor"
+                [style.paddingTop.px]="column.values.paddingTop"
+                [style.paddingRight.px]="column.values.paddingRight"
+                [style.paddingBottom.px]="column.values.paddingBottom"
+                [style.paddingLeft.px]="column.values.paddingLeft"
+                [style.borderTopWidth.px]="column.values.borderTopWidth"
+                [style.borderRightWidth.px]="column.values.borderRightWidth"
+                [style.borderBottomWidth.px]="column.values.borderBottomWidth"
+                [style.borderLeftWidth.px]="column.values.borderLeftWidth"
+                [style.borderTopStyle]="column.values.borderTopStyle"
+                [style.borderRightStyle]="column.values.borderRightStyle"
+                [style.borderBottomStyle]="column.values.borderBottomStyle"
+                [style.borderLeftStyle]="column.values.borderRightStyle"
+                [style.borderTopColor]="column.values.borderTopColor"
+                [style.borderRightColor]="column.values.borderRightColor"
+                [style.borderBottomColor]="column.values.borderBottomColor"
+                [style.borderLeftColor]="column.values.borderRightColor"
+                cellpadding="0"
+                cellspacing="0"
+                border="0">
+                <tr [style.width]="'100%'">
+                  <td [style.width]="'100%'"
+                    [style.display]="'block'">
+                    <render-email-column [style.width]="'100%'" [layoutJson]="column"></render-email-column>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</render-email-display-conditions>

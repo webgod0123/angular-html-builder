@@ -1,0 +1,31 @@
+<div class="block-list">
+  <ng-scrollbar [autoHeightDisabled]="false" trackClass="editor-scrollbar">
+    <div class="block-list-title">
+      {{ "admin_email_template_content_component" | translate }}
+    </div>
+    <div class="block-list-item" *ngFor="let contentComponent of contentComponents">
+      <action-icon
+        *ngIf="contentComponent.effectAllowed"
+        [dndDraggable]="contentComponent.type"
+        [dndEffectAllowed]="contentComponent.effectAllowed"
+        [dndDisableIf]="!!contentComponent.disable"
+        [dndType]="contentComponent.type"
+        [svgIcon]="contentComponent.icon"
+        [buttonType]="'button-icon'"
+        [tooltip]="contentComponent.tooltip"
+        [tooltipPosition]="'right'"
+        [isActive]="contentComponent.type === activeContentComponent"
+        (click)="selectContentComponent(contentComponent)">
+      </action-icon>
+      <action-icon
+        *ngIf="!contentComponent.effectAllowed"
+        [svgIcon]="contentComponent.icon"
+        [buttonType]="'button-icon'"
+        [tooltip]="contentComponent.tooltip"
+        [tooltipPosition]="'right'"
+        [isActive]="contentComponent.type === activeContentComponent"
+        (click)="selectContentComponent(contentComponent)">
+      </action-icon>
+    </div>
+  </ng-scrollbar>
+</div>

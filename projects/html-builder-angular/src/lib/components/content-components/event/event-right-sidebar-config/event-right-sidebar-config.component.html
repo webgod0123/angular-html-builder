@@ -1,0 +1,73 @@
+<form [formGroup]="form">
+  <mat-expansion-panel class="form-section" [expanded]="true">
+    <mat-expansion-panel-header class="form-section-title">
+      <mat-panel-title>
+        {{ "admin_email_template_columns" | translate }}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div class="form-section-content">
+      <event-list class="event-list"></event-list>
+    </div>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel class="form-section" [expanded]="true">
+    <mat-expansion-panel-header class="form-section-title">
+      <mat-panel-title>
+        {{ "admin_email_template_text" | translate }}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div class="form-section-content">
+      <color-picker-input
+        formControlName="textColor"
+        label="{{ 'admin_email_template_color' | translate }}"></color-picker-input>
+      <input-field
+        class="w-auto"
+        formControlName="lineHeight"
+        label="{{ 'admin_email_template_line_height' | translate }}"
+        unit="(%)"
+        [type]="'number'"
+        [positive]="true"></input-field>
+    </div>
+    <element-alignment
+      [type]="alignmentType"
+      [activeAlignment]="formValue('textAlign')"
+      (setAlignment)="setAlignment($event)"></element-alignment>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel class="form-section" [expanded]="true">
+    <mat-expansion-panel-header class="form-section-title">
+      <mat-panel-title>
+        {{ "admin_email_template_links" | translate }}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div class="form-section-content">
+      <div class="form-section-option-header">
+        {{ 'admin_email_template_inherit_body_styles' | translate }}
+        <mat-slide-toggle formControlName="inheritBodyStyles"> </mat-slide-toggle>
+      </div>
+      <color-picker-input
+        *ngIf="!formValue('inheritBodyStyles')"
+        formControlName="linkColor"
+        label="{{ 'admin_email_template_color' | translate }}"></color-picker-input>
+      <div *ngIf="!formValue('inheritBodyStyles')" class="form-section-option-header">
+        {{ 'admin_email_template_underline' | translate }}
+        <mat-slide-toggle formControlName="underline"> </mat-slide-toggle>
+      </div>
+    </div>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel class="form-section" [expanded]="true">
+    <mat-expansion-panel-header class="form-section-title">
+      <mat-panel-title>
+        {{ "admin_email_template_general" | translate }}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div class="form-section-content">
+      <padding-form (setPadding)="setContainerPadding($event)" [padding]="containerPadding"></padding-form>
+    </div>
+  </mat-expansion-panel>
+</form>

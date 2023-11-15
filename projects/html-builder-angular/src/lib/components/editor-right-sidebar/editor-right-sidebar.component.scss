@@ -1,0 +1,156 @@
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/_colors';
+
+.html-builder-right-sidebar {
+  position: fixed;
+  top: 121px;
+  height: calc(100vh - 121px);
+  transition: 0.3s;
+  background: $blue400;
+  border-left: 1px solid $neutral900;
+  width: 350px;
+  right: -350px;
+
+  &.open {
+    right: 0;
+  }
+}
+
+:host {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+// Common util classes for all child config components
+::ng-deep {
+  .form-section {
+    border-bottom: 1px solid $neutral900;
+  }
+
+  .input-field {
+    margin-bottom: 0;
+  }
+
+  .w-auto {
+    width: auto !important;
+  }
+
+  .mat-slide-toggle-content {
+    color: $neutral100;
+  }
+
+  select-field {
+    .input-field {
+      margin-bottom: 0 !important;
+    }
+
+    .custom-arrow {
+      height: 30px !important;
+    }
+  }
+
+  .form-section-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: $neutral100;
+  }
+
+  .form-section-option-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $neutral100;
+    padding: 8px 0;
+    flex-wrap: wrap;
+  }
+
+  .form-section-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 8px 0 16px;
+
+    padding-form {
+      width: 100%;
+    }
+  }
+
+  .form-section-option {
+    width: 100%;
+    margin-top: 16px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  .mat-expansion-panel {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+
+  .mat-expansion-panel-header-title {
+    color: $neutral100 !important;
+  }
+
+  .mat-expansion-indicator::after {
+    color: $neutral100 !important;
+  }
+
+  .ng-scroll-content {
+    width: 100%;
+  }
+
+  .mat-tab-label {
+    min-width: 50px !important;
+    padding: 0 15px !important;
+  }
+
+  .mat-tab-label, .mat-tab-link {
+    color: $neutral100;
+  }
+
+  .mat-tab-body-content {
+    overflow: hidden !important;
+  }
+
+  .alignment-content {
+    .button-icon.mat-icon-button {
+      border-radius: 0 !important;
+      border: none !important;
+    }
+
+    &-title {
+      font-family: Roboto, sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 14px;
+      text-transform: capitalize;
+      color: $blue100;
+      word-break: break-all;
+    }
+
+    .alignment {
+      margin-top: 8px;
+    }
+
+    .element-alignment {
+      display: flex;
+      border-radius: 5px;
+      overflow: hidden;
+      border: 1px solid $neutral900;
+      width: fit-content;
+
+      &-select {
+        border-left: 1px solid $neutral900;
+
+        &:first-child {
+          border-left: none;
+        }
+      }
+    }
+  }
+}

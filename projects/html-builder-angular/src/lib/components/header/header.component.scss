@@ -1,0 +1,115 @@
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/_colors';
+
+.html-builder-header {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px solid $neutral900;
+
+  .top-bar {
+    background-color: $menu-color;
+    display: flex;
+    align-items: center;
+    height: 56px;
+    border-bottom: 1px solid $neutral900;
+    color: $neutral100;
+    font-size: 16px;
+    padding: 0 16px 0 0;
+    justify-content: space-between;
+    position: relative;
+
+    .menu-item {
+      padding-right: 24px;
+      cursor: pointer;
+      color: $neutral100;
+
+      &:hover {
+        color: $blue100;
+      }
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+
+    &-left {
+      display: flex;
+      align-items: center;
+    }
+
+    .name {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .html-name {
+        border: none;
+        background: transparent;
+        color: $neutral100;
+        height: auto;
+        margin: 0;
+        text-align: center;
+        border-radius: 10px;
+
+        &:focus {
+          box-shadow: none;
+          border: 1px solid $neutral900;
+        }
+      }
+    }
+  }
+
+  .tools {
+    background: $blue400;
+    height: 64px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+
+    &-icon {
+      padding-left: 16px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+
+      &.center {
+        padding: 0 8px !important;
+      }
+    }
+
+    &-left, &-right, &-center {
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+
+    &-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+    }
+
+    &-left {
+      &-arrow {
+        padding-right: 16px;
+        border-right: 1px solid $neutral900;
+        margin-right: 8px;
+        height: 100%;
+
+        .tools-icon {
+          padding-left: 0;
+        }
+      }
+    }
+  }
+}

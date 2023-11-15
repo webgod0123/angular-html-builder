@@ -1,0 +1,46 @@
+<div class="configure-content scroll-container">
+  <div class="configure-content-header">
+    {{ title }}
+    <div class="configure-content-header-actions">
+      <action-icon
+        [icon]="(locked$ | async) ? 'lock' : 'lock_open'"
+        tooltip="{{ 'admin_email_template_padlock' | translate }}"
+        (click)="lock()">
+      </action-icon>
+      <action-icon
+        [icon]="'file_copy'"
+        tooltip="{{ 'admin_email_template_duplicate' | translate }}"
+        (click)="duplicateContent()">
+      </action-icon>
+      <action-icon
+        [icon]="'delete_outline'"
+        tooltip="{{ 'admin_email_template_trash' | translate }}"
+        (click)="deleteContent()">
+      </action-icon>
+    </div>
+  </div>
+  <div class="configure-content-device-switch">
+    <button
+      class="configure-content-device-switch-select"
+      [ngClass]="{ active: isDesktop() }"
+      mat-raised-button
+      (click)="switchResponsiveDesign()">
+      {{ 'admin_email_template_desktop' | translate }}
+    </button>
+    <button
+      class="configure-content-device-switch-select"
+      [ngClass]="{ active: isMobile() }"
+      mat-raised-button
+      (click)="switchResponsiveDesign()">
+      {{ "admin_email_template_mobile" | translate }}
+    </button>
+  </div>
+  <div class="scroll-container form-container">
+    <ng-scrollbar [autoHeightDisabled]="false" trackClass="editor-scrollbar">
+      <div class="switch-to-desktop" *ngIf="isMobile()">
+        {{ "admin_email_template_switch_to_desktop" | translate }}
+      </div>
+      <ng-content></ng-content>
+    </ng-scrollbar>
+  </div>
+</div>

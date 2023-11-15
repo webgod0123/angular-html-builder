@@ -1,0 +1,32 @@
+<div class="preview-header-responsive">
+  <action-icon
+    [icon]="'desktop_windows'"
+    [buttonType]="'button-icon'"
+    [tooltip]="'Desktop'"
+    [isActive]="isDesktop()"
+    (click)="setDesktop()">
+  </action-icon>
+  <action-icon
+    [icon]="'tablet'"
+    [buttonType]="'button-icon'"
+    [tooltip]="'Tablet'"
+    [isActive]="isTablet()"
+    (click)="setTablet()">
+  </action-icon>
+  <action-icon
+    [icon]="'stay_current_portrait'"
+    [buttonType]="'button-icon'"
+    [tooltip]="'Mobile'"
+    [isActive]="isMobile()"
+    (click)="setMobile()">
+  </action-icon>
+  <div class="preview-resolutions-dropdown">
+    <dropdown size="large" [value]="activeResolution.value.toString()">
+      <button (click)="setActiveResolution(resolution)" *ngFor="let resolution of resolutions" class="preview-resolutions-dropdown-item" mat-menu-item>
+        <span>{{resolution.name}}</span>
+        <span>{{resolution.label}}</span>
+      </button>
+    </dropdown>
+  </div>
+
+</div>

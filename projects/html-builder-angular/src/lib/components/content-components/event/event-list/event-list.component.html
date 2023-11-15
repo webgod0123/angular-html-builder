@@ -1,0 +1,10 @@
+<div
+  *ngFor="let item of eventColumnTypes; let i = index"
+  class="event-list"
+  [ngClass]="['event-list-' + item]"
+  [dndDraggable]="item"
+  [dndType]="ContentComponentType.EVENT"
+  [dndEffectAllowed]="'copy'">
+  <div class="event-list-column">Event</div>
+  <div class="event-list-column">Ticket</div>
+</div>

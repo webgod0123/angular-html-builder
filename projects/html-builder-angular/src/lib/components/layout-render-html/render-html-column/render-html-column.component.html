@@ -1,0 +1,11 @@
+<div
+  class="builder-column"
+  [ngClass]="layoutJson.contents.length === 0 ? 'builder-column-empty' : ''"
+  [dndDropzone]="dropZoneFor"
+  (dndDrop)="onDrop(layoutJson, $event)"
+>
+  <render-html-content *ngFor="let content of layoutJson.contents" [layoutJson]="content"></render-html-content>
+  <span class="builder-dnd-placeholder" dndPlaceholderRef>
+    {{ "admin_email_template_drop_it_here" | translate }}
+  </span>
+</div>

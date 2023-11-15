@@ -1,0 +1,24 @@
+<render-html-display-conditions
+  [displayConditions]="value.displayConditions">
+  <div
+    *ngIf="value"
+    (click)="onBlockClick($event)"
+    class="builder-component-content"
+    [style.textAlign]="value.textAlign"
+    [style.paddingTop.px]="value.paddingTop"
+    [style.paddingRight.px]="value.paddingRight"
+    [style.paddingBottom.px]="value.paddingBottom"
+    [style.paddingLeft.px]="value.paddingLeft">
+    <a [href]="imageHref()" [target]="value.target" *ngIf="imageHref()" class="builder-pointer-events-none">
+      <img
+        [src]="value.src"
+        [alt]="value.altText"
+        [style.width.%]="value.width" />
+    </a>
+    <img
+      *ngIf="!imageHref()"
+      [src]="value.src"
+      [alt]="value.altText"
+      [style.width.%]="value.width" />
+  </div>
+</render-html-display-conditions>

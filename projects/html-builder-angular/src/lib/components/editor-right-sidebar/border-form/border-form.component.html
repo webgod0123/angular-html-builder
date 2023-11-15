@@ -1,0 +1,41 @@
+<form [formGroup]="form">
+  <div class="form-section-option-header">
+    <div>
+      {{ 'admin_email_template_border' | translate }}
+    </div>
+    <mat-slide-toggle *ngIf="moreOption" (change)="onToggle($event)" [checked]="moreOptions">
+      {{ 'admin_email_template_more_options' | translate }}
+    </mat-slide-toggle>
+  </div>
+  <div *ngIf="!moreOptions">
+    <div class="form-section-option form-section-option-header">
+      <select-field
+        width="50%"
+        formControlName="borderStyle"
+        [options]="borderStyles"
+        labelKey="label"
+        valueKey="value">
+      </select-field>
+      <input-field class="w-auto" formControlName="borderWidth" [type]="'number'" [positive]="true"></input-field>
+      <color-picker-input formControlName="borderColor"></color-picker-input>
+    </div>
+  </div>
+  <div *ngIf="moreOptions">
+    <div *ngFor="let item of borderList" class="form-section-option form-section-option-header">
+      <div class="form-border-label">{{item.formControlName}}</div>
+      <select-field
+        width="50%"
+        [formControlName]="formControlName('Style', item.formControlName)"
+        [options]="borderStyles"
+        labelKey="label"
+        valueKey="value">
+      </select-field>
+      <input-field
+        class="w-auto"
+        [formControlName]="formControlName('Width', item.formControlName)"
+        [type]="'number'"
+        [positive]="true"></input-field>
+      <color-picker-input [formControlName]="formControlName('Color', item.formControlName)"></color-picker-input>
+    </div>
+  </div>
+</form>

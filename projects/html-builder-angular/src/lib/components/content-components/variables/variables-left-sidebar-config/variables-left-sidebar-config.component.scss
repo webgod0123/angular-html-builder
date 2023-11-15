@@ -1,0 +1,9 @@
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/_colors';
+
+.mat-list .mat-list-item {
+  color: $neutral100 !important;
+}
+
+.mat-list-item:hover {
+  background: $blue300 !important;
+}

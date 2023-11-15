@@ -1,0 +1,30 @@
+<div [innerHTML]="getStyleTag('div', layoutJson.id, false, layoutJson.values.linkColor, layoutJson.values.underline) | safeHtml"></div>
+<div [innerHTML]="getCommonStyles('div') | safeHtml"></div>
+
+<div
+  class="builder-body"
+  (click)="onBodyClick($event)"
+  [style.color]="layoutJson.values.textColor"
+  [style.background]="layoutJson.values.backgroundColor"
+  [style.font-family]="layoutJson.values.fontFamily"
+  [dndDropzone]="dropZoneFor"
+  (dndDrop)="onDrop($event)"
+  [attr.data-id]="layoutJson.id"
+>
+  <render-html-row
+    *ngFor="let row of layoutJson.rows"
+    [layoutJson]="row"
+    [body]="layoutJson"
+    class="builder-component"
+    componentHighlight
+    [componentId]="row.id"
+    (click)="onRowClick($event, row.id)"
+  >
+    <component-actions
+      [locked]="row.values.locked"
+    ></component-actions>
+  </render-html-row>
+  <span class="builder-dnd-placeholder" dndPlaceholderRef>
+    {{ "admin_email_template_drop_it_here" | translate }}
+  </span>
+</div>

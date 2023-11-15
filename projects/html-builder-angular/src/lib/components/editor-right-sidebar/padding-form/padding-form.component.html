@@ -1,0 +1,29 @@
+<form [formGroup]="form">
+  <div class="form-section-option-header">
+    <div>
+      {{ 'admin_email_template_padding' | translate }}
+    </div>
+    <mat-slide-toggle (change)="onToggle($event)" [checked]="moreOptions">
+      {{ 'admin_email_template_more_options' | translate }}
+    </mat-slide-toggle>
+  </div>
+  <div *ngIf="!moreOptions">
+    <input-field
+      class="w-auto"
+      formControlName="all"
+      label="{{ 'admin_email_template_all_sides' | translate }}"
+      unit="(px)"
+      [type]="'number'"
+      [positive]="true"></input-field>
+  </div>
+  <div *ngIf="moreOptions" class="form-section-option-header">
+    <input-field
+      *ngFor="let item of paddingList"
+      class="w-auto padding-option"
+      [formControlName]="item.formControlName"
+      [label]="item.label"
+      unit="(px)"
+      [type]="'number'"
+      [positive]="true"></input-field>
+  </div>
+</form>

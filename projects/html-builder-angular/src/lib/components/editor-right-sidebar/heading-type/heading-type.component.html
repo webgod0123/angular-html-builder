@@ -1,0 +1,17 @@
+<div class="alignment-content">
+  <div class="alignment-content-title">
+    {{ "admin_email_template_heading_type" | translate }}
+  </div>
+  <div class="alignment">
+    <div class="element-alignment">
+      <action-icon
+        size="small"
+        [buttonType]="'button-icon'"
+        [isActive]="activeHeadingType === type.type"
+        class="element-alignment-select"
+        *ngFor="let type of this.headingTypes"
+        svgIcon="{{ type.icon }}"
+        (onClick)="select(type.type)"></action-icon>
+    </div>
+  </div>
+</div>

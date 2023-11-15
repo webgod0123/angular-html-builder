@@ -1,0 +1,76 @@
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/dialog';
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/spacing';
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/colors';
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/sizes';
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/shape';
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/typography';
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/form';
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/buttons';
+
+$slide-bar-width: 32px;
+$slide-bar-height: 16px;
+$slide-thumb-size: 12px;
+
+::ng-deep .create-template-dialog .mat-dialog-container {
+  @include large-dialog-container;
+}
+
+::ng-deep .create-template-dialog .mat-dialog-content {
+  @include modal-dialog-content;
+
+  overflow: visible !important;
+}
+
+.dialog-label {
+  @include attribute-input-label;
+
+  margin-bottom: spacing(1.25);
+}
+
+.dialog-actions {
+  @include dialog-actions;
+}
+
+.primary-dialog-button {
+  @include small-primary-dialog-button;
+}
+
+.secondary-dialog-button {
+  @include small-secondary-dialog-button;
+}
+
+.row-container {
+  @include row-container;
+}
+
+.row-item {
+  width: calc(50% - #{spacing(2)});
+}
+
+.row-item:nth-child(2n) {
+  margin-left: spacing(2);
+}
+
+.row-item:nth-child(2n + 1) {
+  margin-right: spacing(2);
+}
+
+.status-switch {
+  @include label;
+
+  display: flex;
+  flex-direction: column;
+  margin-left: spacing(2);
+}
+
+.show-hide-container {
+  margin-bottom: spacing(1);
+}
+
+.show-hide {
+  @include show-hide;
+}
+
+:host ::ng-deep .mat-error {
+  @include mat-error;
+}

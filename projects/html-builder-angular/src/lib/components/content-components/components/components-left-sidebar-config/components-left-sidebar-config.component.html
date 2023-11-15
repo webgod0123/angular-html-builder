@@ -1,0 +1,37 @@
+<ng-container>
+  <div class="editor-layer-title">{{ "admin_email_template_email_components" | translate }}</div>
+
+  <div *ngIf="!isLoading; else componentsLoading" class="components-container">
+    <ng-scrollbar [autoHeightDisabled]="false" trackClass="editor-scrollbar">
+      <ul class="component-items">
+        <li *ngFor="let component of componentList" class="component-item-container">
+          <component-card
+            [src]="getImagePath(component.thumbnailPath)"
+            [label]="component.name"
+            [hasImage]="!!component.thumbnailPath"
+            [id]="component.id"
+            (click)="onSelectComponent(component)">
+          </component-card>
+        </li>
+      </ul>
+    </ng-scrollbar>
+    <div class="actions-container">
+      <a (click)="toggleShowing()" class="show-all">
+        {{ (!isShowingAll ? 'admin_email_template_show_all' : 'admin_email_template_show_only_recent') | translate }}
+      </a>
+      <button mat-flat-button color="primary" class="create-button" (click)="createNewComponent()">
+        <action-icon [icon]="'add'"></action-icon> {{ 'admin_email_template_create_new' | translate }}
+      </button>
+    </div>
+  </div>
+
+  <ng-template #componentsLoading>
+    <div class="loader-container">
+      <editor-loader></editor-loader>
+    </div>
+  </ng-template>
+</ng-container>
+
+<div class="all-list-container" [class.active]="isShowingAll">
+  <components-list></components-list>
+</div>

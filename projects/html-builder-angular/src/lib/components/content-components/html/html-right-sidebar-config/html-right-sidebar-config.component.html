@@ -1,0 +1,40 @@
+<form [formGroup]="form">
+  <mat-expansion-panel *ngIf="isDesktop()" class="form-section" [expanded]="true">
+    <mat-expansion-panel-header class="form-section-title">
+      <mat-panel-title>
+        {{ "admin_email_template_html" | translate }}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div class="form-section-content">
+      <html-editor [data]="htmlControl?.value" (onChange)="onChangeEditor($event)"></html-editor>
+    </div>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel class="form-section" [expanded]="true">
+    <mat-expansion-panel-header class="form-section-title">
+      <mat-panel-title>
+        {{ "admin_email_template_general" | translate }}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div class="form-section-content">
+      <padding-form (setPadding)="setContainerPadding($event)" [padding]="containerPadding"></padding-form>
+    </div>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel class="form-section" [expanded]="true">
+    <mat-expansion-panel-header class="form-section-title">
+      <mat-panel-title>
+        {{ "admin_email_template_responsive_design" | translate }}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <toggle-switch-element
+      *ngIf="isDesktop()"
+      label="{{ 'admin_email_template_hide_on_desktop' | translate }}"></toggle-switch-element>
+    <toggle-switch-element
+      *ngIf="isMobile()"
+      label="{{ 'admin_email_template_hide_on_mobile' | translate }}"></toggle-switch-element>
+  </mat-expansion-panel>
+</form>

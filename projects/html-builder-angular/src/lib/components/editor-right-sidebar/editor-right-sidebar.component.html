@@ -1,0 +1,38 @@
+<div class="html-builder-right-sidebar" [ngClass]="{'open': rightMenuOpen$ | async}">
+  <language-content
+    *ngIf="(rightMenuOpen$ | async) && (configType$ | async) === ConfigType.Layout"
+    (updateLanguageLayout)="updateLangLayout($event)">
+  </language-content>
+  <body-content *ngIf="(rightMenuOpen$ | async) && (configType$ | async) === ConfigType.Body"></body-content>
+  <configuration-content
+    *ngIf="(rightMenuOpen$ | async) && (configType$ | async) === ConfigType.Content"
+    title="{{ 'admin_email_template_content_title_' + activeContentComponent | translate }}"
+    [responsive]="responsive"
+    (switchResponsive)="switchResponsiveDesign()">
+    <columns-right-sidebar-config
+      *ngIf="ContentComponentType.BLOCK === activeContentComponent"></columns-right-sidebar-config>
+    <text-right-sidebar-config
+      *ngIf="ContentComponentType.TEXT === activeContentComponent"
+      [responsive]="responsive"></text-right-sidebar-config>
+    <head-right-sidebar-config
+      *ngIf="ContentComponentType.HEAD === activeContentComponent"
+      [responsive]="responsive"></head-right-sidebar-config>
+    <button-right-sidebar-config
+      *ngIf="ContentComponentType.BUTTON === activeContentComponent"
+      [responsive]="responsive"></button-right-sidebar-config>
+    <html-right-sidebar-config
+      *ngIf="ContentComponentType.HTML === activeContentComponent"
+      [responsive]="responsive"></html-right-sidebar-config>
+    <variables-config *ngIf="ContentComponentType.VARIABLE === activeContentComponent"></variables-config>
+    <image-right-sidebar-config
+      *ngIf="ContentComponentType.IMAGE === activeContentComponent"></image-right-sidebar-config>
+    <menu-right-sidebar-config
+      *ngIf="ContentComponentType.MENU === activeContentComponent"></menu-right-sidebar-config>
+    <divider-right-sidebar-config
+      *ngIf="ContentComponentType.DIVIDER === activeContentComponent"
+      [responsive]="responsive"></divider-right-sidebar-config>
+    <event-right-sidebar-config
+      *ngIf="ContentComponentType.EVENT === activeContentComponent"
+      [responsive]="responsive"></event-right-sidebar-config>
+  </configuration-content>
+</div>

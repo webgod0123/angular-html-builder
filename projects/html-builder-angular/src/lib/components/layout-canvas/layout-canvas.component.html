@@ -1,0 +1,28 @@
+<div
+  class="layout-canvas-container"
+  [class.small-left-menu]="isSmallLeftMenu$ | async"
+  [class.has-sub-left-menu]="hasSubLeftMenu$ | async"
+  [class.closed-left-menu]="(leftMenuOpen$ | async) === false"
+  [class.closed-right-menu]="(rightMenuOpen$ | async) === false">
+  <ng-scrollbar [autoHeightDisabled]="false" trackClass="editor-scrollbar" track="all">
+    <div class="layout-canvas-content">
+      <div class="layout-canvas">
+        <layout-render-html
+          *ngIf="activeType === HTMLBuilderType.WEB"
+          [layout]="layoutStateService.layoutJson$ | async"
+          #layoutHtml></layout-render-html>
+
+        <!--TODO: Remove later, this is just for development to preview Email version-->
+        <layout-render-email
+          *ngIf="activeType === HTMLBuilderType.EMAIL"
+          [layout]="layoutStateService.layoutJson$ | async"></layout-render-email>
+      </div>
+      <div class="d-none" #layoutEmail>
+        <layout-render-email
+          *ngIf="renderEmailLayoutActive"
+          [layout]="layoutStateService.layoutJson$ | async"
+          (onRendered)="onEmailLayoutRendered()"></layout-render-email>
+      </div>
+    </div>
+  </ng-scrollbar>
+</div>

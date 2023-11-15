@@ -1,0 +1,50 @@
+<render-email-display-conditions
+  [displayConditions]="value.displayConditions">
+  <table
+    *ngIf="value"
+    [style.textAlign]="value.textAlign"
+    [style.width]="'100%'">
+    <tr>
+      <td
+        [style.paddingTop.px]="value.containerPadding.paddingTop"
+        [style.paddingRight.px]="value.containerPadding.paddingRight"
+        [style.paddingBottom.px]="value.containerPadding.paddingBottom"
+        [style.paddingLeft.px]="value.containerPadding.paddingLeft">
+        <a
+          [href]="href()"
+          [target]="value.target"
+          [style.width]="!value.autoWidth ? value.width + '%' : 'auto'"
+          [style.paddingTop.px]="value.paddingTop"
+          [style.paddingRight.px]="value.paddingRight"
+          [style.paddingBottom.px]="value.paddingBottom"
+          [style.paddingLeft.px]="value.paddingLeft"
+          [style.backgroundColor]="value.backgroundColor"
+          [style.borderTopLeftRadius.px]="value.borderTopLeftRadius"
+          [style.borderTopRightRadius.px]="value.borderTopRightRadius"
+          [style.borderBottomLeftRadius.px]="value.borderBottomLeftRadius"
+          [style.borderBottomRightRadius.px]="value.borderBottomRightRadius"
+          [style.borderTopWidth.px]="value.borderTopWidth"
+          [style.borderRightWidth.px]="value.borderRightWidth"
+          [style.borderBottomWidth.px]="value.borderBottomWidth"
+          [style.borderLeftWidth.px]="value.borderLeftWidth"
+          [style.borderTopStyle]="value.borderTopStyle"
+          [style.borderRightStyle]="value.borderRightStyle"
+          [style.borderBottomStyle]="value.borderBottomStyle"
+          [style.borderLeftStyle]="value.borderRightStyle"
+          [style.borderTopColor]="value.borderTopColor"
+          [style.borderRightColor]="value.borderRightColor"
+          [style.borderBottomColor]="value.borderBottomColor"
+          [style.borderLeftColor]="value.borderRightColor"
+          [style.display]="'inline-block'"
+          [style.color]="value.textColor"
+          [style.fontFamily]="value.fontFamily"
+          [style.lineHeight.%]="value.lineHeight"
+          [style.fontWeight]="value.fontWeight"
+          [style.fontSize.px]="value.fontSize"
+          [style.textAlign]="'center'"
+          [innerHTML]="value.text | safeHtml">
+        </a>
+      </td>
+    </tr>
+  </table>
+</render-email-display-conditions>

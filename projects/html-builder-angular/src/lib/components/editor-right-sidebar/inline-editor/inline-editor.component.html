@@ -1,0 +1,6 @@
+<ckeditor
+  *ngIf="isConfigReady"
+  [editor]="Editor"
+  [data]="value"
+  [config]="config"
+  (ready)="onReadyCKEditor($event)"></ckeditor>

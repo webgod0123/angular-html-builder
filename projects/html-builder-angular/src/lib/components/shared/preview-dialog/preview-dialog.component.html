@@ -1,0 +1,35 @@
+<div class="preview-header">
+  <preview-resolutions></preview-resolutions>
+  <div class="preview-header-right">
+    <action-icon
+      [icon]="'email'"
+      [buttonType]="'button-icon'"
+      tooltip="{{ 'admin_email_template_test_email_send' | translate }}"
+      (click)="openTestEmailDialog()">
+    </action-icon>
+    <action-icon
+      [icon]="'brightness_2'"
+      [buttonType]="'button-icon'"
+      class="theme-switcher"
+      [tooltip]="'Theme'">
+    </action-icon>
+    <action-icon
+      [icon]="'close'"
+      [buttonType]="'button-icon'"
+      class="close-btn"
+      [tooltip]="'Close'"
+      mat-dialog-close>
+    </action-icon>
+  </div>
+</div>
+
+<mat-dialog-content>
+  <div class="preview-container">
+    <div class="preview-content">
+      <div class="preview-content-header"></div>
+      <ng-scrollbar [autoHeightDisabled]="false" trackClass="editor-scrollbar">
+        <div class="preview-content-body" [innerHTML]="data.layoutHTML | safeHtml"></div>
+      </ng-scrollbar>
+    </div>
+  </div>
+</mat-dialog-content>

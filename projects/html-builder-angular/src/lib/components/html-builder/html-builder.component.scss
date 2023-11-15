@@ -1,0 +1,41 @@
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/_colors';
+@import '../../styles/table';
+@import './html-builder-variables';
+
+::ng-deep {
+  .editor-scrollbar {
+    --scrollbar-size: 5px;
+    --scrollbar-thumb-color: rgb(0 0 0 / 50%);
+    --scrollbar-thumb-hover-color: rgb(0 0 0 / 50%);
+  }
+}
+
+.html-builder {
+  .html-builder-head {
+    .import-btn {
+      margin-left: 6px;
+    }
+
+    button {
+      cursor: pointer;
+      background-color: rgb(0 187 255);
+      color: white;
+      padding: 12px 10px;
+      border-radius: 8px;
+      max-width: 100px;
+      margin: 0;
+    }
+  }
+
+  .html-builder-content {
+    position: relative;
+    border-top: 1px solid black;
+
+    .middle-content {
+      position: fixed;
+      top: $headerHeight;
+      width: 100%;
+      overflow: hidden;
+    }
+  }
+}

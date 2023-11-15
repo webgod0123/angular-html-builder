@@ -1,0 +1,28 @@
+{
+  "name": "@interticket/html-builder-angular",
+  "version": "14.0.71",
+  "publishConfig": {
+    "registry": "http://192.168.226.197:4873/"
+  },
+  "author": "Interticket Kft",
+  "license": "Copyright (c) Interticket Kft., All rights reserved.",
+  "type": "module",
+  "scripts": {
+    "publish-lib": "npm version patch --prefix ../../dist/interticket/html-builder-angular && npm version patch && npm publish ../../dist/interticket/html-builder-angular"
+  },
+  "peerDependencies": {
+    "@angular/cdk": "^14.2.3",
+    "@angular/common": "^14.2.4",
+    "@angular/core": "^14.2.4",
+    "@angular/forms": "^14.2.4",
+    "@angular/material": "^14.2.6",
+    "@angular/router": "^14.2.4",
+    "@interticket/core": "14.0.6",
+    "@interticket/editor-ui-kit": "^14.0.34",
+    "ngx-drag-drop": "^14.0.0",
+    "@ckeditor/ckeditor5-angular": "^4.0.0",
+    "@interticket/ckeditor5": "^3.5.0",
+    "ngx-permissions": "^15.0.1",
+    "lodash-es": "^4.17.21"
+  }
+}

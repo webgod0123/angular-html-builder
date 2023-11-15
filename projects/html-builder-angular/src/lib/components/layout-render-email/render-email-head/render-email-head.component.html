@@ -1,0 +1,28 @@
+<table cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td [innerHTML]="getStyleTag('table', id, value.inheritBodyStyles, value.linkColor, value.underline) | safeHtml"></td>
+  </tr>
+</table>
+
+<table
+  *ngIf="value"
+  cellpadding="0"
+  cellspacing="0"
+  border="0"
+  [attr.data-id]="id"
+  [style.width]="'100%'"
+  [style.font-family]="value.fontFamily"
+  [style.font-weight]="value.fontWeight"
+  [style.fontSize.px]="value.fontSize"
+  [style.color]="value.textColor"
+  [style.text-align]="value.textAlign"
+  [style.line-height.%]="value.lineHeight">
+  <tr>
+    <td
+      [style.padding-top.px]="value.containerPadding.paddingTop"
+      [style.padding-right.px]="value.containerPadding.paddingRight"
+      [style.padding-bottom.px]="value.containerPadding.paddingBottom"
+      [style.padding-left.px]="value.containerPadding.paddingLeft" [innerHTML]="value.text">
+    </td>
+  </tr>
+</table>

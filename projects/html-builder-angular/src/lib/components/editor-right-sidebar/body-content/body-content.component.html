@@ -1,0 +1,57 @@
+<div class="configure-content-header">
+  {{ "admin_email_template_body" | translate }}
+</div>
+<form [formGroup]="form">
+  <mat-expansion-panel class="form-section" [expanded]="true">
+    <mat-expansion-panel-header class="form-section-title">
+      <mat-panel-title>
+        {{ "admin_email_template_general" | translate }}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div class="form-section-content">
+      <color-picker-input
+        formControlName="textColor"
+        label="{{ 'admin_email_template_text_color' | translate }}"></color-picker-input>
+      <color-picker-input
+        formControlName="backgroundColor"
+        label="{{ 'admin_email_template_background_color' | translate }}"></color-picker-input>
+      <input-field
+        class="w-auto mt-2"
+        formControlName="contentWidth"
+        label="{{ 'admin_email_template_content_width' | translate }}"
+        unit="(px)"
+        [type]="'number'"
+        [positive]="true"></input-field>
+      <element-alignment class="mt-2" [type]="alignmentType" [activeAlignment]="formValue('contentAlignment')" (setAlignment)="setAlignment($event)"></element-alignment>
+      <select-field
+        [options]="fonts"
+        valueKey="value"
+        formControlName="fontFamily"
+        class="select-font-family mt-2"
+        labelKey="name"
+        label="{{ 'admin_email_template_font_family' | translate }}"></select-field>
+    </div>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel class="form-section" [expanded]="true">
+    <mat-expansion-panel-header class="form-section-title">
+      <mat-panel-title>
+        {{ "admin_email_template_links" | translate }}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div class="form-section-content">
+      <color-picker-input
+        formControlName="linkColor"
+        label="{{ 'admin_ticket_template_fill_color' | translate }}"></color-picker-input>
+
+      <div class="form-section-option-header mt-2">
+        {{ 'admin_email_template_underline' | translate }}
+        <mat-slide-toggle formControlName="underline"></mat-slide-toggle>
+      </div>
+
+    </div>
+  </mat-expansion-panel>
+
+</form>

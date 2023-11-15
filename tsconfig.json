@@ -1,0 +1,40 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "paths": {
+      "@interticket/html-builder-angular": [
+        "./dist/interticket/html-builder-angular"
+      ],
+      "@interticket/html-builder-angular-src": [
+        "./projects/html-builder-angular/src/public-api"
+      ]
+    },
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "strictPropertyInitialization": false,
+    "noUnusedLocals": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "es2020",
+    "lib": ["es2018", "dom", "es2019"],
+    "allowJs": true,
+    "noImplicitAny": false
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}

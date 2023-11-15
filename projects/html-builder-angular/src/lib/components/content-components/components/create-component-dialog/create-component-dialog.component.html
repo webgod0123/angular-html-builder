@@ -1,0 +1,16 @@
+<form [formGroup]="form">
+  <dialog-title>
+    {{ 'admin_email_template_create_new_email_component' | translate }}
+  </dialog-title>
+  <mat-dialog-content>
+    <input-field formControlName="name" label="{{ 'component_name' | translate }}"></input-field>
+  </mat-dialog-content>
+  <mat-dialog-actions class="dialog-actions">
+    <button class="primary-dialog-button" type="submit" mat-flat-button (click)="create()">
+      {{ 'create' | translate }}
+    </button>
+    <button class="secondary-dialog-button" mat-stroked-button (click)="cancel()">
+      {{ 'cancel' | translate }}
+    </button>
+  </mat-dialog-actions>
+</form>

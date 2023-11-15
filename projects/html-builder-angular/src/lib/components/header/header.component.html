@@ -1,0 +1,105 @@
+<div class="html-builder-header">
+  <div class="top-bar">
+    <div class="top-bar-left">
+      <brand-logo></brand-logo>
+      <div class="menu-item" (click)="openEmailCreateDialog()">{{ "admin_ticket_template_create_new" | translate }}</div>
+      <div class="menu-item" (click)="openTestEmailDialog()">{{ "admin_email_template_test_email_send" | translate }}</div>
+    </div>
+    <div class="name">
+      <span>{{ name }}</span>
+    </div>
+    <div class="top-bar-right">
+      <div class="menu-item" (click)="backToStemX()">{{ "admin_ticket_template_back_link" | translate }}</div>
+    </div>
+  </div>
+  <div class="tools">
+    <div class="tools-left">
+      <div class="tools-left-arrow">
+        <action-icon
+          (click)="clickArrowBtn()"
+          *ngIf="leftMenuOpen$ | async"
+          [svgIcon]="'arrow_left'"
+          [isActive]="true"
+          [buttonType]="'button-icon'"
+          class="tools-icon"></action-icon>
+        <action-icon
+          (click)="clickArrowBtn()"
+          *ngIf="(leftMenuOpen$ | async) === false"
+          [svgIcon]="'arrow_right'"
+          [buttonType]="'button-icon'"
+          class="tools-icon"></action-icon>
+      </div>
+
+      <action-icon
+        [icon]="'visibility'"
+        [tooltip]="'Preview'"
+        [buttonType]="'button-icon'"
+        (click)="openPreviewSettingsDialog()"
+        class="tools-icon center"></action-icon>
+      <!-- TODO: This is just for testing email render, later we should remove it from here -->
+      <action-icon
+        [icon]="'drafts'"
+        [tooltip]="'Switch to email mode'"
+        [buttonType]="'button-icon'"
+        (click)="setModeToEmail()"
+        class="tools-icon center"></action-icon>
+      <action-icon
+        [icon]="'desktop_windows'"
+        [tooltip]="'Desktop'"
+        [buttonType]="'button-icon'"
+        (click)="setModeToWeb()"
+        class="tools-icon center"></action-icon>
+      <action-icon
+        [icon]="'stay_current_portrait'"
+        [tooltip]="'Mobile'"
+        [buttonType]="'button-icon'"
+        class="tools-icon center"></action-icon>
+    </div>
+    <div class="tools-center">
+      <action-icon
+        (click)="saveLayout()"
+        [svgIcon]="'save'"
+        tooltip="{{ 'admin_ticket_template_save' | translate }}"
+        [buttonType]="'button-icon'"
+        class="tools-icon center"></action-icon>
+      <action-icon
+        (click)="undoAction()"
+        [disabled]="!isUndoPossible()"
+        [svgIcon]="'undo'"
+        tooltip="{{ 'admin_ticket_template_undo' | translate }}"
+        [buttonType]="'button-icon'"
+        class="tools-icon center"></action-icon>
+      <action-icon
+        (click)="redoAction()"
+        [disabled]="!isRedoPossible()"
+        [svgIcon]="'redo'"
+        tooltip="{{ 'admin_ticket_template_redo' | translate }}"
+        [buttonType]="'button-icon'"
+        class="tools-icon center"></action-icon>
+    </div>
+    <div class="tools-right">
+      <action-icon
+        *ngIf="isTemplate"
+        [svgIcon]="'language'"
+        [isActive]="!!((rightMenuOpen$ | async) && (configType$ | async) === ConfigType.Layout)"
+        tooltip="{{ 'admin_email_template_language' | translate }}"
+        [buttonType]="'button-icon'"
+        (click)="openLayoutContent()"
+        class="tools-icon"></action-icon>
+      <action-icon
+        [icon]="'fullscreen'"
+        [isActive]="!!((rightMenuOpen$ | async) && (configType$ | async) === ConfigType.Body)"
+        [tooltip]="'Body'"
+        [buttonType]="'button-icon'"
+        (click)="openBodyContent()"
+        class="tools-icon"></action-icon>
+      <action-icon
+        [isActive]="!!((rightMenuOpen$ | async) && (configType$ | async) === ConfigType.Content)"
+        [svgIcon]="'close_right_menu'"
+        [tooltip]="'Transformation'"
+        [buttonType]="'button-icon'"
+        (click)="toggleConfig()"
+        class="tools-icon"></action-icon>
+    </div>
+  </div>
+</div>

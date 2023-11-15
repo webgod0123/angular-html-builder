@@ -1,0 +1,80 @@
+<dialog-title mat-dialog-close>
+  {{ data.title }}
+</dialog-title>
+
+<mat-dialog-content>
+  <div class="raw">
+    <div>{{ "admin_email_template_type_of_event" | translate }}</div>
+    <div class="raw-content">
+      <div>{{ "admin_email_template_events" | translate }}</div>
+      <div>{{ "admin_email_template_tickets" | translate }}</div>
+    </div>
+  </div>
+  <form [formGroup]="form">
+    <div class="raw-container">
+      <div class="raw" *ngFor="let displayCondition of data.displayConditions">
+        <mat-checkbox class="check-box" [formControlName]="displayCondition" (change)="onEnableEvent(displayCondition)">{{
+          "admin_email_template_" + displayCondition.toLowerCase() | translate
+          }}</mat-checkbox>
+        <div class="raw-condition-content">
+          <div>
+            <input-field
+              [formControlName]="displayCondition + eventsLabel"
+              class="w-auto"
+              [type]="'number'"
+              max="3"
+              [positive]="true"></input-field>
+            <p class="error" *ngIf="hasError(displayCondition + eventsLabel, 'max')">
+              {{'label_validation_max_value' | translate: hasError(displayCondition + eventsLabel, 'max') ? formError(displayCondition + eventsLabel, 'max') : '' }}
+            </p>
+          </div>
+          <div>
+            <input-field
+              [formControlName]="displayCondition + ticketsLabel"
+              class="w-auto"
+              [type]="'number'"
+              max="3"
+              [positive]="true"></input-field>
+            <p class="error" *ngIf="hasError(displayCondition + ticketsLabel, 'max')">
+              {{'label_validation_max_value' | translate: hasError(displayCondition + ticketsLabel, 'max') ? formError(displayCondition + ticketsLabel, 'max') : '' }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row-container">
+      <autocomplete-field
+        label="{{ 'admin_email_template_language' | translate }}"
+        placeholder=" {{ 'admin_email_template_language' | translate }}"
+        noResultLabel="{{'admin_email_template_autocomplete_no_result' | translate}}"
+        requiredErrorLabel="{{'label_field_is_required' | translate}}"
+        formControlName="language"
+        class="w-auto"
+        labelKey="label"
+        valueKey="value"
+        [options]="languages"></autocomplete-field>
+    </div>
+
+    <div class="row-container">
+      <div [style.width]="'100%'">
+        <input-field
+          label="{{ 'admin_email_template_email_to' | translate }}"
+          requiredErrorLabel="{{'label_field_is_required' | translate}}"
+          [type]="'text'"
+          formControlName="email"
+          [updateOnChange]="true"></input-field>
+        <p class="error" *ngIf="hasError('email', 'email')">
+          {{'ss_lang_invalid_email' | translate: hasError('email', 'email') ? formError('email', 'email') : '' }}
+        </p>
+      </div>
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions class="dialog-actions">
+  <button class="primary-dialog-button" (click)="onPreview()">
+    {{ data.createTitle }}
+  </button>
+  <button class="secondary-dialog-button" (click)="onDismiss()">{{ "general_lang_cancel" | translate }}</button>
+</mat-dialog-actions>

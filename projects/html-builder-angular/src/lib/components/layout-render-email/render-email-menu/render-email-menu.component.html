@@ -1,0 +1,41 @@
+<table
+  *ngIf="value"
+  cellpadding="0"
+  cellspacing="0"
+  border="0"
+  [style.width]="'100%'"
+  [style.fontSize.px]="value.fontSize"
+  [style.font-weight]="value.fontWeight"
+  [style.font-family]="value.fontFamily"
+  [style.line-height.%]="value.lineHeight"
+  [style.text-align]="value.textAlign">
+  <tr>
+    <td
+      [style.padding-top.px]="value.containerPadding.paddingTop"
+      [style.padding-right.px]="value.containerPadding.paddingRight"
+      [style.padding-bottom.px]="value.containerPadding.paddingBottom"
+      [style.padding-left.px]="value.containerPadding.paddingLeft">
+      <ng-container *ngFor="let menuItem of value.menuItems; let last = last">
+        <a
+          *ngIf="href(menuItem)"
+          [href]="href(menuItem)"
+          [attr.target]="menuItem.target"
+          [style.color]="value.linkColor"
+          [style.display]="getDisplay(value.layout)"
+          [style.padding-top.px]="value.paddingTop"
+          [style.padding-right.px]="value.paddingRight"
+          [style.padding-bottom.px]="value.paddingBottom"
+          [style.padding-left.px]="value.paddingLeft">{{ menuItem.text }}</a>
+        <span
+          *ngIf="!href(menuItem)"
+          [style.color]="value.textColor"
+          [style.display]="getDisplay(value.layout)"
+          [style.padding-top.px]="value.paddingTop"
+          [style.padding-right.px]="value.paddingRight"
+          [style.padding-bottom.px]="value.paddingBottom"
+          [style.padding-left.px]="value.paddingLeft">{{ menuItem.text }}</span>
+        <span *ngIf="value.layout === 'horizontal' && value.separator && !last">{{ value.separator }}</span>
+      </ng-container>
+    </td>
+  </tr>
+</table>

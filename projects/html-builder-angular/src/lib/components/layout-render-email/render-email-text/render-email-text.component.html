@@ -1,0 +1,30 @@
+<render-email-display-conditions [displayConditions]="value.displayConditions">
+  <table cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td [innerHTML]="getStyleTag('table', id, value.inheritBodyStyles, value.linkColor, value.underline) | safeHtml"></td>
+    </tr>
+  </table>
+
+  <table
+    *ngIf="value"
+    cellpadding="0"
+    cellspacing="0"
+    border="0"
+    [attr.data-id]="id"
+    [style.width]="'100%'"
+    [style.font-family]="value.fontFamily"
+    [style.fontSize.px]="value.fontSize"
+    [style.font-weight]="value.fontWeight"
+    [style.line-height.%]="value.lineHeight"
+    [style.text-align]="value.textAlign"
+    [style.color]="value.textColor">
+    <tr>
+      <td
+        [style.padding-top.px]="value.containerPadding.paddingTop"
+        [style.padding-right.px]="value.containerPadding.paddingRight"
+        [style.padding-bottom.px]="value.containerPadding.paddingBottom"
+        [style.padding-left.px]="value.containerPadding.paddingLeft"
+        [innerHTML]="value.text"></td>
+    </tr>
+  </table>
+</render-email-display-conditions>

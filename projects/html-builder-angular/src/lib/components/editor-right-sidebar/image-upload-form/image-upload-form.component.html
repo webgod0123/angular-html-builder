@@ -1,0 +1,4 @@
+<button class="upload-button" mat-flat-button color="primary" (click)="file.click()">
+  {{ "admin_ticket_template_upload_image" | translate }}
+</button>
+<input hidden type="file" accept="image/*" #file (change)="uploadFile($event)" />

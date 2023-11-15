@@ -1,0 +1,58 @@
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/_colors';
+
+.background-position {
+  display: flex;
+  align-items: center;
+  color: $neutral100;
+
+  &-value {
+    margin-left: 16px;
+    text-transform: capitalize;
+  }
+
+  &-selector {
+    border: 1px solid $neutral100;
+    padding: 0.5rem;
+    display: inline-block;
+
+    &-row {
+      margin-top: 6px;
+
+      button {
+        margin-left: 12px;
+        cursor: pointer;
+
+        svg {
+          circle,
+          path {
+            fill: $neutral100;
+          }
+
+          path {
+            opacity: 0;
+          }
+        }
+
+        &.active {
+          svg path {
+            opacity: 1;
+          }
+        }
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        &:hover {
+          svg path {
+            opacity: 1;
+          }
+        }
+      }
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+}

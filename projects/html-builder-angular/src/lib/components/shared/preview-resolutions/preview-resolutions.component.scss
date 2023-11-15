@@ -1,0 +1,36 @@
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/colors';
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/fonts';
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/sizes';
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/spacing';
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/transition';
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/shape';
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/typography';
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/mat-menu';
+
+::ng-deep .dropdown-input {
+  margin: 0;
+  width: 90px !important;
+}
+
+::ng-deep .mat-menu-panel {
+  max-height: 288px !important;
+}
+
+.preview-header-responsive {
+  display: flex;
+  align-items: center;
+
+  action-icon {
+    padding: 16px 8px;
+  }
+}
+
+.preview-resolutions-dropdown {
+  margin-left: 8px;
+
+  &-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

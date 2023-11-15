@@ -1,0 +1,46 @@
+<render-email-display-conditions
+  [displayConditions]="value.displayConditions">
+  <div [style.display]="'none'">{{EventContentTags.START}}</div>
+
+  <table cellpadding="0"
+    cellspacing="0"
+    border="0"
+    *ngIf="value"
+    [style.width]="'100%'"
+    [style.display]="'flex'"
+    [style.flex-direction]="FlexDirectionMap[value.eventColumnType]"
+    [style.text-align]="value.textAlign"
+    [style.color]="value.textColor"
+    [style.line-height.%]="value.lineHeight">
+    <tr>
+      <td
+        [style.paddingTop.px]="value.paddingTop"
+        [style.paddingRight.px]="value.paddingRight"
+        [style.paddingBottom.px]="value.paddingBottom"
+        [style.paddingLeft.px]="value.paddingLeft" [style.display]="'block'">
+        <render-email-row
+          *ngFor="let row of value.eventRows"
+          [layoutJson]="row">
+        </render-email-row>
+
+        <render-email-row
+          *ngFor="let row of value.ticketTopRows"
+          [layoutJson]="row">
+        </render-email-row>
+
+        <div [style.display]="'none'">{{TicketContentTags.START}}</div>
+        <render-email-row
+          *ngFor="let row of value.ticketTicketRows"
+          [layoutJson]="row">
+        </render-email-row>
+        <div [style.display]="'none'">{{TicketContentTags.END}}</div>
+
+        <render-email-row
+          *ngFor="let row of value.ticketBottomRows"
+          [layoutJson]="row">
+        </render-email-row>
+      </td>
+    </tr>
+  </table>
+  <div [style.display]="'none'">{{EventContentTags.END}}</div>
+</render-email-display-conditions>

@@ -1,0 +1,12 @@
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/_colors';
+
+::ng-deep {
+  .ck .ck-link_selected {
+    background-color: transparent;
+  }
+
+  p {
+    line-height: inherit;
+    color: inherit;
+  }
+}

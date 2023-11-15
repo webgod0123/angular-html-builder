@@ -1,0 +1,41 @@
+<div class="configure-content-header">
+  {{ "admin_email_template_language" | translate }}
+</div>
+<form [formGroup]="form">
+  <mat-expansion-panel class="form-section" [expanded]="true">
+    <mat-expansion-panel-header class="form-section-title">
+      <mat-panel-title>
+        {{ "admin_email_template_current_language" | translate }}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div class="form-section-content">
+      <div class="current-language">
+        {{ currentLanguage?.language }}
+      </div>
+      <button mat-flat-button color="primary" class="adopt-content margin-top" (click)="onAdoptContent()">
+        {{ 'admin_email_template_adopt_content' | translate }}
+      </button>
+    </div>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel class="form-section" [expanded]="true">
+    <mat-expansion-panel-header class="form-section-title">
+      <mat-panel-title>
+        {{ "admin_email_template_change_language" | translate }}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div class="form-section-content">
+      <select-field
+        [options]="languages"
+        valueKey="id"
+        formControlName="languageId"
+        class="select-language"
+        labelKey="language"></select-field>
+      <button mat-flat-button color="primary" class="add-language margin-top">
+        {{ 'admin_email_template_add_new' | translate }}
+      </button>
+    </div>
+  </mat-expansion-panel>
+</form>

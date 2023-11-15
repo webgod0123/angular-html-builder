@@ -1,0 +1,30 @@
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/_colors';
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/sizes';
+
+.block-list {
+  background: $blue400;
+  height: 100%;
+  padding: 16px 0;
+  position: relative;
+  z-index: 10;
+  border-right: 1px solid $neutral900;
+  width: $small-left-menu-width;
+
+  &-title {
+    color: $blue200;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+    overflow: hidden;
+    width: 72px;
+  }
+
+  &-item {
+    margin-top: 16px;
+    padding: 0 16px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}

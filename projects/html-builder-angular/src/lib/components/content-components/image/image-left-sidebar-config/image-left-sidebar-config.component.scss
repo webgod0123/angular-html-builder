@@ -1,0 +1,26 @@
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/spacing';
+
+.image-container {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding-top: spacing(0.5);
+  height: calc(100vh - 230px);
+}
+
+.image-items {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  margin: 0 spacing(2);
+}
+
+.image-item-container {
+  width: calc(50% - #{spacing(1)});
+  margin-bottom: spacing(2);
+  cursor: pointer;
+
+  &:nth-child(2n + 1) {
+    margin-right: spacing(2);
+  }
+}

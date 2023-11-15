@@ -1,0 +1,46 @@
+<ng-contaier [ngSwitch]="layoutJson.type" [componentId]="layoutJson.id" componentHighlight class="builder-component">
+  <div [dndDraggable]="layoutJson.id" [dndEffectAllowed]="'move'" [dndType]="layoutJson.type" class="builder-component-content builder-dnd-wrap">
+    <render-html-text
+      *ngSwitchCase="ContentComponentType.TEXT"
+      [value]="textValues"
+      [id]="layoutJson.id"></render-html-text>
+    <render-html-head
+      *ngSwitchCase="ContentComponentType.HEAD"
+      [value]="headValues"
+      [id]="layoutJson.id"></render-html-head>
+    <render-html-variable
+      *ngSwitchCase="ContentComponentType.VARIABLE"
+      [value]="variablesValues"
+      [id]="layoutJson.id"></render-html-variable>
+    <render-html-menu
+      *ngSwitchCase="ContentComponentType.MENU"
+      [value]="menuValues"
+      [id]="layoutJson.id"></render-html-menu>
+    <render-html-image
+      *ngSwitchCase="ContentComponentType.IMAGE"
+      [value]="imageValues"
+      [id]="layoutJson.id"></render-html-image>
+    <render-html-button
+      *ngSwitchCase="ContentComponentType.BUTTON"
+      [value]="buttonValues"
+      [id]="layoutJson.id"></render-html-button>
+    <render-html-html
+      *ngSwitchCase="ContentComponentType.HTML"
+      [value]="htmlValues"
+      [id]="layoutJson.id"></render-html-html>
+    <render-html-divider
+      *ngSwitchCase="ContentComponentType.DIVIDER"
+      [value]="dividerValues"
+      [id]="layoutJson.id"></render-html-divider>
+    <render-html-event
+      *ngSwitchCase="ContentComponentType.EVENT"
+      [value]="eventValues"
+      [id]="layoutJson.id"></render-html-event>
+
+    <component-drag-handle dndHandle class="drag-handler" *ngIf="layoutJson.type !== ContentComponentType.EVENT"></component-drag-handle>
+  </div>
+
+  <component-actions
+    *ngIf="layoutJson.type !== ContentComponentType.BLOCK"
+    [locked]="layoutJson.values.locked"></component-actions>
+</ng-contaier>

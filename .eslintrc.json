@@ -1,0 +1,3 @@
+{
+  "extends": "@interticket/eslint-config-angular"
+}

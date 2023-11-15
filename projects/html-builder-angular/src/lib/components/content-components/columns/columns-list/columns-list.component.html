@@ -1,0 +1,10 @@
+<mat-grid-list
+  *ngFor="let row of rows"
+  [cols]="row.cols"
+  rowHeight="32px"
+  [dndDraggable]="row.cells"
+  [dndType]="ContentComponentType.BLOCK"
+  [dndEffectAllowed]="'copy'"
+>
+  <mat-grid-tile *ngFor="let cell of row.cells" [colspan]="cell"></mat-grid-tile>
+</mat-grid-list>

@@ -1,0 +1,107 @@
+{
+  "name": "html-builder-frontend",
+  "version": "0.0.0",
+  "scripts": {
+    "serve": "ng serve --port 4201",
+    "serve-dev": "yarn serve --proxy-config proxy.conf.dev.js",
+    "serve-ext": "yarn serve --proxy-config proxy.conf.ext.js",
+    "build": "ng build",
+    "lint": "ng lint && yarn lint-scss && yarn lint-html",
+    "lint-fix": "ng lint --fix && yarn lint-scss --fix && yarn lint-html",
+    "lint-scss": "stylelint \"**/*.scss\"",
+    "lint-html": "htmlhint \"**/*.html\" --config node_modules/@interticket/eslint-config-angular/.htmlhintrc",
+    "postinstall": "ngcc",
+    "build:builder": "ng build @interticket/html-builder-angular --configuration production",
+    "publish:builder": "yarn build:builder && yarn --cwd projects/html-builder-angular publish-lib"
+  },
+  "private": true,
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix"
+    ],
+    "*.scss": [
+      "stylelint"
+    ]
+  },
+  "husky": {
+    "stash": false,
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "dependencies": {
+    "@angular/animations": "^14.2.4",
+    "@angular/cdk": "^14.2.6",
+    "@angular/common": "^14.2.4",
+    "@angular/compiler": "^14.2.4",
+    "@angular/core": "^14.2.4",
+    "@angular/forms": "^14.2.4",
+    "@angular/material": "^14.2.6",
+    "@angular/platform-browser": "^14.2.4",
+    "@angular/platform-browser-dynamic": "^14.2.4",
+    "@angular/router": "^14.2.4",
+    "@ckeditor/ckeditor5-angular": "^4.0.0",
+    "@ctrl/ngx-codemirror": "^5.1.1",
+    "@interticket/ckeditor5": "^3.5.0",
+    "@interticket/core": "14.0.6",
+    "@interticket/editor-ui-kit": "^14.0.34",
+    "codemirror": "^5.65.12",
+    "foundation-sites": "^6.7.5",
+    "jwt-decode": "^3.1.2",
+    "lodash-es": "^4.17.21",
+    "luxon": "^3.0.4",
+    "ngx-color-picker": "^11.0.0",
+    "ngx-drag-drop": "^14.0.0",
+    "ngx-permissions": "^15.0.1",
+    "ngx-scrollbar": "^10.0.1",
+    "normalize.css": "^8.0.1",
+    "rxjs": "^6.6.3",
+    "socket.io-client": "^4.5.1",
+    "zone.js": "~0.11.7"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^14.2.4",
+    "@angular-devkit/build-ng-packagr": "0.1002.3",
+    "@angular-devkit/core": "^14.2.4",
+    "@angular-devkit/schematics": "^14.2.4",
+    "@angular-eslint/builder": "14.1.2",
+    "@angular-eslint/eslint-plugin": "14.1.2",
+    "@angular-eslint/eslint-plugin-template": "14.1.2",
+    "@angular-eslint/schematics": "14.1.2",
+    "@angular-eslint/template-parser": "14.1.2",
+    "@angular/cli": "^14.2.4",
+    "@angular/compiler-cli": "^14.2.3",
+    "@interticket/eslint-config-angular": "^14.0.9",
+    "@types/lodash": "^4.14.191",
+    "@types/luxon": "^3.0.1",
+    "@types/node": "16.10.0",
+    "@typescript-eslint/eslint-plugin": "^5.36.2",
+    "@typescript-eslint/parser": "^5.36.2",
+    "eslint": "^8.23.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsdoc": "^39.3.6",
+    "eslint-plugin-prefer-arrow": "^1.2.3",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "htmlhint": "^1.1.4",
+    "husky": "^6.0.0",
+    "jasmine-core": "~3.6.0",
+    "jasmine-spec-reporter": "~5.0.0",
+    "karma": "~6.1.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "~2.0.3",
+    "karma-jasmine": "~4.0.0",
+    "karma-jasmine-html-reporter": "~1.5.0",
+    "lint-staged": "^10.5.4",
+    "ng-packagr": "14.2.1",
+    "slugify": "^1.6.5",
+    "stylelint": "^14.13.0",
+    "ts-node": "^10.9.1",
+    "typescript": "~4.6.4"
+  },
+  "engines": {
+    "node": "^16.10.0",
+    "npm": "^7.24.0",
+    "yarn": "^1.22.19"
+  },
+  "engineStrict": true
+}

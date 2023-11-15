@@ -1,0 +1,49 @@
+<render-html-display-conditions [displayConditions]="layoutJson.values.displayConditions" class="builder-dnd-wrap">
+  <div class="builder-component-row builder-dnd-wrap"
+    [dndDraggable]="layoutJson.id"
+    [dndEffectAllowed]="'move'"
+    [dndDisableIf]="false"
+    [dndType]="ContentComponentType.BLOCK"
+    [style.background]="layoutJson.values.backgroundColor"
+    [style.padding-top.px]="layoutJson.values.paddingTop"
+    [style.padding-left.px]="layoutJson.values.paddingLeft"
+    [style.padding-right.px]="layoutJson.values.paddingRight"
+    [style.padding-bottom.px]="layoutJson.values.paddingBottom">
+    <div
+      [style.max-width]="contentWidth"
+      [style.margin]="body?.values?.contentAlignment === 'center' ? '0 auto' : '0'"
+      [style.display]="'flex'"
+      [style.background]="layoutJson.values.contentBackgroundColor"
+      [style.background-image]="backgroundImage"
+      [style.background-repeat]="layoutJson.values.backgroundRepeat"
+      [style.background-position]="layoutJson.values.backgroundPosition">
+      <div
+        *ngFor="let column of layoutJson.columns"
+        [style.display]="'flex'"
+        [style.width]="calculateWidthPercent(column, layoutJson.columns)"
+        [style.background]="column.values.backgroundColor"
+        [style.paddingTop.px]="column.values.paddingTop"
+        [style.paddingRight.px]="column.values.paddingRight"
+        [style.paddingBottom.px]="column.values.paddingBottom"
+        [style.paddingLeft.px]="column.values.paddingLeft"
+        [style.borderTopWidth.px]="column.values.borderTopWidth"
+        [style.borderRightWidth.px]="column.values.borderRightWidth"
+        [style.borderBottomWidth.px]="column.values.borderBottomWidth"
+        [style.borderLeftWidth.px]="column.values.borderLeftWidth"
+        [style.borderTopStyle]="column.values.borderTopStyle"
+        [style.borderRightStyle]="column.values.borderRightStyle"
+        [style.borderBottomStyle]="column.values.borderBottomStyle"
+        [style.borderLeftStyle]="column.values.borderRightStyle"
+        [style.borderTopColor]="column.values.borderTopColor"
+        [style.borderRightColor]="column.values.borderRightColor"
+        [style.borderBottomColor]="column.values.borderBottomColor"
+        [style.borderLeftColor]="column.values.borderRightColor">
+        <render-html-column [style.width]="'100%'" [layoutJson]="column"></render-html-column>
+      </div>
+    </div>
+    <component-drag-handle dndHandle class="drag-handler"></component-drag-handle>
+  </div>
+</render-html-display-conditions>
+
+<!-- NOTE: component-actions -->
+<ng-content></ng-content>

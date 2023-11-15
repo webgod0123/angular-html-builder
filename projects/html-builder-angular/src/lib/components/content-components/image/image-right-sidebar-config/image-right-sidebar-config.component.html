@@ -1,0 +1,117 @@
+<form [formGroup]="form">
+  <mat-expansion-panel class="form-section" [expanded]="true">
+    <mat-expansion-panel-header class="form-section-title">
+      <mat-panel-title>
+        {{ "admin_email_template_content_title_image" | translate }}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div class="form-section-content">
+      <div class="form-section-option">
+        <div class="form-section-option-header">
+          <div>{{ 'admin_email_template_content_title_image' | translate }}</div>
+          <image-upload-form (uploadImageFile)="uploadImageFile($event)" id="image_upload"></image-upload-form>
+        </div>
+        <div class="image-upload">
+          <img [src]="formValue('src')" (click)="onClickFileUpload()" />
+        </div>
+      </div>
+      <div class="form-section-option">
+        <input-field formControlName="src" label="Image URL" [type]="'text'"></input-field>
+      </div>
+      <div class="form-section-option">
+        <div class="form-section-option-header">
+          {{ "admin_email_template_auto_width" | translate }}
+          <mat-slide-toggle formControlName="autoWidth"> </mat-slide-toggle>
+        </div>
+        <div class="form-section-option-header" *ngIf="!formValue('autoWidth')">
+          <mat-slider min="0" max="100" step="1" formControlName="width">
+            <input matSliderThumb />
+          </mat-slider>
+          {{ formValue("width") }} %
+        </div>
+      </div>
+      <div class="form-section-option">
+        <element-alignment
+          [type]="alignmentType"
+          [activeAlignment]="formValue('textAlign')"
+          (setAlignment)="setAlignment($event)"></element-alignment>
+      </div>
+      <div class="form-section-option">
+        <input-field formControlName="altText" label="Alternate text"></input-field>
+      </div>
+    </div>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel class="form-section" [expanded]="true">
+    <mat-expansion-panel-header class="form-section-title">
+      <mat-panel-title>
+        {{ "admin_email_template_action" | translate }}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div class="form-section-content">
+      <div class="form-section-option">
+        <div class="form-section-option-header">
+          {{ "admin_email_template_image_link" | translate }}
+          <select-field
+            [options]="actionList"
+            formControlName="action"
+            valueKey="key"
+            class="select-font-family w-auto"
+            labelKey="name"></select-field>
+        </div>
+      </div>
+      <div [ngSwitch]="formValue('action')" class="form-section-option">
+        <div *ngSwitchCase="SiteAction.WEBSITE">
+          <div class="form-section-option">
+            <input-field formControlName="href" label="Url"></input-field>
+          </div>
+          <div class="form-section-option">
+            <select-field
+              [options]="targetList"
+              formControlName="target"
+              label="Target"
+              valueKey="key"
+              class="select-font-family w-auto"
+              labelKey="name"></select-field>
+          </div>
+        </div>
+        <div *ngSwitchCase="SiteAction.EMAIL">
+          <div class="form-section-option">
+            <input-field
+              formControlName="emailTo"
+              label=" {{ 'admin_email_template_email_to' | translate }}"></input-field>
+          </div>
+          <div class="form-section-option">
+            <input-field
+              formControlName="subject"
+              label=" {{ 'admin_email_template_email_subject' | translate }}"></input-field>
+          </div>
+          <div class="form-section-option">
+            <input-field
+              formControlName="body"
+              label=" {{ 'admin_email_template_email_body' | translate }}"></input-field>
+          </div>
+        </div>
+        <div *ngSwitchCase="SiteAction.PHONE">
+          <div class="form-section-option">
+            <input-field formControlName="phone" label=" {{ 'admin_email_template_phone' | translate }}"></input-field>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel class="form-section" [expanded]="true">
+    <mat-expansion-panel-header class="form-section-title">
+      <mat-panel-title>
+        {{ "admin_email_template_general" | translate }}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div class="form-section-content">
+      <padding-form (setPadding)="setPadding($event)" [padding]="padding"></padding-form>
+    </div>
+  </mat-expansion-panel>
+</form>

@@ -1,0 +1,10 @@
+<div class="html-builder-sidebar" [ngClass]="{ active: leftMenuOpen$ | async }">
+  <content-component-list
+    [contentComponents]="contentComponents"
+    (activeLayer)="activeLayer($event)"
+    class="scroll-container"
+    [activeContentComponent]="activeContentComponent"></content-component-list>
+  <editor-layer
+    [isActiveLayer]="isActiveSidebarLayer"
+    [activeContentComponent]="activeContentComponent"></editor-layer>
+</div>

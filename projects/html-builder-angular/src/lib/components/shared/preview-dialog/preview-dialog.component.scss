@@ -1,0 +1,102 @@
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/dialog';
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/spacing';
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/colors';
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/sizes';
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/shape';
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/typography';
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/form';
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/buttons';
+
+$slide-bar-width: 32px;
+$slide-bar-height: 16px;
+$slide-thumb-size: 12px;
+
+::ng-deep .preview-dialog {
+  max-width: 95vw !important;
+}
+
+::ng-deep .preview-dialog .mat-dialog-container {
+  @include large-dialog-container;
+
+  width: 100vw;
+  overflow: hidden;
+}
+
+::ng-deep .preview-dialog .mat-dialog-content {
+  @include modal-dialog-content;
+
+  overflow: auto !important;
+  padding: 0;
+  max-height: 95vh;
+}
+
+::ng-deep .preview-dialog action-icon {
+  padding: 0 8px;
+}
+
+.preview {
+  &-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $neutral100;
+    border-bottom: 1px solid $neutral900;
+    position: relative;
+
+    &-right {
+      position: absolute;
+      top: 50%;
+      display: flex;
+      right: 8px;
+      transform: translateY(-50%);
+      height: 100%;
+      align-items: center;
+
+      .theme-switcher {
+        margin-right: 8px;
+      }
+    }
+  }
+
+  &-container {
+    background-color: white;
+    padding: 40px;
+  }
+
+  &-content {
+    width: 85%;
+    margin: auto;
+    border: 1px solid $blue900;
+    border-radius: 8px;
+    overflow: hidden;
+
+    &-header {
+      background: url('../../../assets/desktop.svg') 16px center no-repeat $blue900;
+      height: 32px;
+    }
+
+    &-body {
+      max-height: 70vh;
+    }
+  }
+}
+
+
+.primary-dialog-button {
+  @include small-primary-dialog-button;
+
+  margin-right: 0 !important;
+}
+
+.secondary-dialog-button {
+  @include small-primary-dialog-button;
+  @include small-secondary-dialog-button;
+}
+
+.close-btn {
+  border-left: 1px solid $neutral900;
+  padding-left: 16px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}

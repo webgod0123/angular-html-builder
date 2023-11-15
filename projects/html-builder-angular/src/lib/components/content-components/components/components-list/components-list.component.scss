@@ -1,0 +1,39 @@
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/spacing';
+
+.components-container {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding-top: spacing(0.5);
+  height: calc(100vh - 230px);
+  padding-left: spacing(2);
+  padding-right: spacing(2);
+}
+
+.component-items {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: spacing(2);
+  list-style-type: none;
+  margin: 0;
+}
+
+.component-item-container {
+  cursor: pointer;
+}
+
+.search-form {
+  padding: 0 spacing(2);
+}
+
+.search-form .form-section-option {
+  margin-top: 0;
+}
+
+.additional-filters {
+  display: none;
+}
+
+.additional-filters.active {
+  display: block;
+}

@@ -1,0 +1,22 @@
+<div class="component-card" [class.selected]="selected">
+  <div [style.background-image]="backgroundImageStyle" class="component-card-image">
+  </div>
+  <div class="component-card-overlay">
+    <div class="component-card-overlay-background"></div>
+    <action-icon [icon]="'menu'" [matMenuTriggerFor]="menu" class="menu-button"></action-icon>
+    <mat-menu #menu="matMenu" class="popup-menu">
+      <button mat-menu-item>
+        {{ 'admin_email_template_show' | translate }}
+      </button>
+      <button mat-menu-item>
+        {{ 'general_lang_edit' | translate }}
+      </button>
+      <button mat-menu-item>
+        {{ 'admin_email_template_duplicate' | translate }}
+      </button>
+    </mat-menu>
+    <div *ngIf="label" class="component-card-label">
+      {{ label }}
+    </div>
+  </div>
+</div>

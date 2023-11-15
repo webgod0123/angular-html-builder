@@ -1,0 +1,12 @@
+<table
+  cellpadding="0"
+  cellspacing="0"
+  border="0"
+  [style.width]="'100%'"
+>
+  <tr>
+    <td>
+      <render-email-content *ngFor="let content of layoutJson.contents" [layoutJson]="content"></render-email-content>
+    </td>
+  </tr>
+</table>

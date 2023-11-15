@@ -1,0 +1,25 @@
+<div class="alignment-content">
+  <div class="alignment-content-title">
+    <span *ngIf="isHorizontal()" class="input-label">
+      {{ "admin_email_template_horizontal_alignment" | translate }}
+    </span>
+    <span *ngIf="isVertical()" class="input-label">
+      {{ "admin_email_template_vertical_alignment" | translate }}
+    </span>
+    <span *ngIf="isContent()" class="input-label">
+      {{ "admin_email_template_content_alignment" | translate }}
+    </span>
+  </div>
+  <div class="alignment">
+    <div class="element-alignment">
+      <action-icon
+        size="small"
+        [buttonType]="'button-icon'"
+        [isActive]="activeElementAlignment === alignment.alignment"
+        class="element-alignment-select"
+        *ngFor="let alignment of elements(type)"
+        icon="{{ alignment.icon }}"
+        (click)="align(alignment.alignment)"></action-icon>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,83 @@
+<form [formGroup]="form">
+  <mat-expansion-panel class="form-section" [expanded]="true">
+    <mat-expansion-panel-header class="form-section-title">
+      <mat-panel-title>
+        {{ "admin_email_template_text" | translate }}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div class="form-section-content">
+      <color-picker-input
+        formControlName="textColor"
+        label="{{ 'admin_ticket_template_fill_color' | translate }}"></color-picker-input>
+      <input-field
+        class="w-auto"
+        formControlName="lineHeight"
+        label="{{ 'admin_email_template_line_height' | translate }}"
+        unit="(%)"
+        [type]="'number'"
+        [positive]="true"></input-field>
+      <element-alignment [type]="alignmentType"></element-alignment>
+    </div>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel class="form-section" [expanded]="true" *ngIf="isDateVariable">
+    <mat-expansion-panel-header class="form-section-title">
+      <mat-panel-title>
+        {{ "admin_email_template_variable_date_format_title" | translate }}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div class="form-section-content">
+      <autocomplete-field
+        label="{{ 'admin_email_template_variable_date_format' | translate }}"
+        placeholder="{{ 'admin_label_select' | translate }}"
+        noResultLabel="{{'admin_email_template_autocomplete_no_result' | translate}}"
+        formControlName="dateFormat"
+        valueKey="type"
+        labelKey="name"
+        [multi]="false"
+        [options]="dateFormatList">
+      </autocomplete-field>
+    </div>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel class="form-section" [expanded]="true">
+    <mat-expansion-panel-header class="form-section-title">
+      <mat-panel-title>
+        {{ "admin_email_template_conditional_display_title" | translate }}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div class="form-section-content">
+      <autocomplete-field
+        label="{{ 'admin_email_template_conditional_display_only_on' | translate }}"
+        placeholder="{{ 'admin_label_select' | translate }}"
+        noResultLabel="{{'admin_email_template_autocomplete_no_result' | translate}}"
+        formControlName="conditionalDisplay"
+        valueKey="type"
+        labelKey="name"
+        [multi]="true"
+        [options]="eventTypeList">
+      </autocomplete-field>
+    </div>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel class="form-section" [expanded]="true">
+    <mat-expansion-panel-header class="form-section-title">
+      <mat-panel-title>
+        {{ "admin_email_template_general" | translate }}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div class="form-section-content">
+      <input-field
+        class="w-auto"
+        formControlName="padding"
+        label="{{ 'admin_email_template_padding_all_sides' | translate }}"
+        unit="(px)"
+        [type]="'number'"
+        [positive]="true"></input-field>
+    </div>
+  </mat-expansion-panel>
+</form>

@@ -1,0 +1,27 @@
+<ng-container>
+  <div class="editor-layer-title">{{ "admin_ticket_template_image_list_title" | translate }}</div>
+  <div class="editor-layer-content padding">
+    <image-upload-form (imageLoading)="setImageLoading($event)" (uploadImageFile)="uploadFile($event)"></image-upload-form>
+  </div>
+
+  <div *ngIf="!isImageLoading; else imageLoading" class="image-container">
+    <ng-scrollbar [autoHeightDisabled]="false" trackClass="editor-scrollbar">
+      <ul class="image-items">
+        <li *ngFor="let image of imageList" class="image-item-container">
+          <image-card
+            [src]="getImagePath(image)"
+            [hasImage]="!!image"
+            (click)="onSelectImage(image)"
+            [dndDraggable]="getImagePath(image)"
+            [dndType]="ContentComponentType.IMAGE"
+            [dndEffectAllowed]="'copy'">
+          </image-card>
+        </li>
+      </ul>
+    </ng-scrollbar>
+  </div>
+
+  <ng-template #imageLoading>
+    <editor-loader></editor-loader>
+  </ng-template>
+</ng-container>

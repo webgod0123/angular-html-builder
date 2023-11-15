@@ -1,0 +1,207 @@
+@use 'sass:math';
+
+@import '../html-builder/html-builder-variables';
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/colors';
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/sizes';
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/transition';
+
+$right-menu-width: 350px;
+
+.layout-canvas {
+  &-container {
+    height: calc(100vh - #{$headerHeight});
+    background: $neutral200;
+    transition: 0.3s;
+
+    &.small-left-menu {
+      width: calc(100vw - #{$small-left-menu-width + $right-menu-width});
+      margin-left: $small-left-menu-width;
+    }
+
+    &.has-sub-left-menu {
+      width: calc(100vw - #{$right-menu-width + $large-left-menu-width + $small-left-menu-width});
+      margin-left: $small-left-menu-width + $large-left-menu-width;
+    }
+
+    &.small-left-menu.has-sub-left-menu {
+      width: calc(100vw - #{$small-left-menu-with-sub-menu-width + $right-menu-width});
+      margin-left: $small-left-menu-with-sub-menu-width;
+    }
+
+    &.closed-left-menu {
+      width: calc(100vw - #{$right-menu-width});
+      margin-left: 0;
+    }
+
+    &.closed-right-menu {
+      width: calc(100vw - #{$large-left-menu-width});
+    }
+
+    &.small-left-menu.closed-right-menu {
+      width: calc(100vw - #{$small-left-menu-width});
+    }
+
+    &.has-sub-left-menu.closed-right-menu {
+      width: calc(100vw - #{$small-left-menu-with-sub-menu-width});
+    }
+
+    &.closed-left-menu.closed-right-menu {
+      width: 100%;
+    }
+
+    &.small-left-menu.has-sub-left-menu.closed-right-menu {
+      width: calc(100vw - #{$small-left-menu-with-sub-menu-width});
+    }
+  }
+
+  &-content {
+    width: 1250px;
+    margin: auto;
+  }
+
+  background: white;
+  width: 850px;
+  margin: auto;
+  min-height: 100%;
+  transition: all 300ms ease;
+
+  /**
+   * Common classes for Email and Html render
+   */
+  ::ng-deep {
+    $outlineWidth: 1px;
+    $actionsZIndex: 1;
+    $labelZIndex: 2;
+    $dragHandlerZIndex: 3;
+    $emptyColumnHeight: 80px;
+    $emptyEventHeight: 120px;
+
+
+    .builder-component {
+      display: block;
+
+      &.builder-component-highlighted {
+        outline: $outlineWidth solid $primary100;
+        outline-offset: -$outlineWidth;
+      }
+
+      &.builder-component-selected {
+        outline: $outlineWidth solid $primary900;
+        position: relative;
+
+        > component-actions {
+          display: block;
+        }
+
+        // NOTE: for rows we have to be 2 level deep with the `.drag-handler`
+        &:hover > .builder-dnd-wrap > .builder-dnd-wrap > .drag-handler {
+          display: block;
+        }
+        // NOTE: for column content we have to be 1 level deep with the `.drag-handler`
+        &:hover > .builder-dnd-wrap > .drag-handler {
+          display: block;
+        }
+      }
+
+      component-actions {
+        display: none;
+      }
+
+      &-action {
+        position: absolute;
+        z-index: $actionsZIndex;
+        background-color: $blue400;
+        bottom: -45px;
+        right: 0;
+        border-radius: 6px;
+        display: flex;
+      }
+    }
+
+    .builder-body {
+      min-height: calc(100vh - #{$headerHeight});
+    }
+
+    .builder-event-ticket, .builder-event-event {
+      min-height: $emptyEventHeight;
+      background: #bbdeeb87;
+      outline: $primary400 dashed 1px;
+    }
+
+    .builder-event-event-content-placeholder {
+      min-height: $emptyEventHeight;
+      background: #bbdeeb87;
+      outline: $primary400 dashed 1px;
+    }
+
+    .builder-event-ticket-content-placeholder {
+      min-height: math.div($emptyEventHeight, 3);
+      background: #bbdeeb87;
+      outline: $primary400 dashed 1px;
+    }
+
+    .builder-block-with-label {
+      position: relative;
+
+      .builder-component-label {
+        position: absolute;
+        z-index: $labelZIndex;
+        bottom: 0;
+        left: 0;
+        display: none;
+        background-color: $primary100;
+        color: $neutral100;
+        width: 60px;
+        text-align: center;
+        transform: translateY(100%);
+      }
+
+      &:hover {
+        .builder-component-label {
+          display: block;
+        }
+      }
+    }
+
+    .builder-column {
+      min-height: 100%;
+    }
+
+    .builder-column-empty {
+      min-height: $emptyColumnHeight;
+      background: #bbdeeb87;
+      outline: $primary400 dashed 1px;
+    }
+
+    .builder-cursor-default {
+      cursor: default;
+    }
+
+    .builder-pointer-events-none {
+      pointer-events: none;
+    }
+
+    *:focus-visible {
+      outline: none;
+    }
+
+    .builder-dnd-placeholder {
+      display: block;
+      text-align: center;
+    }
+
+    .drag-handler {
+      position: absolute;
+      z-index: $dragHandlerZIndex;
+      left: -16px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: none;
+    }
+
+    // NOTE: CKEditor default text align remove, to have our text align take effect
+    .ck.ck-editor__editable_inline[dir='ltr'] {
+      text-align: unset;
+    }
+  }
+}

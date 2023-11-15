@@ -1,0 +1,53 @@
+<form [formGroup]="form">
+  <mat-expansion-panel *ngIf="isDesktop()" class="form-section" [expanded]="true">
+    <mat-expansion-panel-header class="form-section-title">
+      <mat-panel-title>
+        {{ "admin_email_template_line" | translate }}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div class="form-section-content">
+      <div class="form-section-option-header">
+        <div>{{ "admin_email_template_width" | translate }}</div>
+        <div class="form-section-option-header">
+          <mat-slider min="0" max="100" step="1" formControlName="width">
+            <input matSliderThumb />
+          </mat-slider>
+          {{ formValue("width") }} %
+        </div>
+      </div>
+      <border-form [moreOption]="false" [border]="border" (setBorder)="setBorder($event)"></border-form>
+      <element-alignment
+        [type]="alignmentType"
+        [activeAlignment]="formValue('textAlign')"
+        (setAlignment)="setAlignment($event)"></element-alignment>
+    </div>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel class="form-section" [expanded]="true">
+    <mat-expansion-panel-header class="form-section-title">
+      <mat-panel-title>
+        {{ "admin_email_template_general" | translate }}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div class="form-section-content">
+      <padding-form (setPadding)="setPadding($event)" [padding]="padding"></padding-form>
+    </div>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel class="form-section" [expanded]="true">
+    <mat-expansion-panel-header class="form-section-title">
+      <mat-panel-title>
+        {{ "admin_email_template_responsive_design" | translate }}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <toggle-switch-element
+      *ngIf="isDesktop()"
+      label="{{ 'admin_email_template_hide_on_desktop' | translate }}"></toggle-switch-element>
+    <toggle-switch-element
+      *ngIf="isMobile()"
+      label="{{ 'admin_email_template_hide_on_mobile' | translate }}"></toggle-switch-element>
+  </mat-expansion-panel>
+</form>

@@ -1,0 +1,18 @@
+<div class="alignment-content">
+  <div class="alignment-content-title">
+    {{ "admin_email_template_background_repeat" | translate }}
+  </div>
+  <div class="alignment">
+    <div class="element-alignment">
+      <action-icon
+        size="small"
+        [buttonType]="'button-icon'"
+        [isActive]="activeBackgroundRepeat === item.value"
+        [tooltip]="item.name"
+        class="element-alignment-select"
+        *ngFor="let item of backgroundImageRepeatList"
+        icon="{{ item.icon }}"
+        (click)="setBackgroundImageRepeat(item.value)"></action-icon>
+    </div>
+  </div>
+</div>

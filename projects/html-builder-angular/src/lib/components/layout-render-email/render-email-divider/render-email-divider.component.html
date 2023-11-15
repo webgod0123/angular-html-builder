@@ -1,0 +1,37 @@
+<render-email-display-conditions
+  [displayConditions]="value.displayConditions">
+  <table
+    *ngIf="value"
+    cellpadding="0"
+    cellspacing="0"
+    border="0"
+    [style.width]="'100%'"
+    [style.text-align]="value.textAlign"
+    [style.line-height]="0">
+    <tr>
+      <td
+        [style.display]="'inline-block'"
+        [style.width.%]="value.width"
+        [style.paddingTop.px]="value.paddingTop"
+        [style.paddingRight.px]="value.paddingRight"
+        [style.paddingBottom.px]="value.paddingBottom"
+        [style.paddingLeft.px]="value.paddingLeft"
+        [style.borderTopLeftRadius.px]="value.borderTopLeftRadius"
+        [style.borderTopRightRadius.px]="value.borderTopRightRadius"
+        [style.borderBottomLeftRadius.px]="value.borderBottomLeftRadius"
+        [style.borderBottomRightRadius.px]="value.borderBottomRightRadius"
+        [style.borderTopWidth.px]="value.borderTopWidth"
+        [style.borderRightWidth.px]="value.borderRightWidth"
+        [style.borderBottomWidth.px]="value.borderBottomWidth"
+        [style.borderLeftWidth.px]="value.borderRightWidth"
+        [style.borderTopStyle]="value.borderTopStyle"
+        [style.borderRightStyle]="value.borderRightStyle"
+        [style.borderBottomStyle]="value.borderBottomStyle"
+        [style.borderLeftStyle]="value.borderRightStyle"
+        [style.borderTopColor]="value.borderTopColor"
+        [style.borderRightColor]="value.borderRightColor"
+        [style.borderBottomColor]="value.borderBottomColor"
+        [style.borderLeftColor]="value.borderRightColor"></td>
+    </tr>
+  </table>
+</render-email-display-conditions>

@@ -1,0 +1,26 @@
+<div class="html-builder">
+  <div class="html-builder-head">
+    <editor-header
+      (activeMode)="updateType($event)"
+      (onLayoutSave)="onLayoutSave()"
+      [name]="htmlName"
+      [headerBackLink]="headerBackLink"
+      [displayConditions]="displayConditions"
+      [templateLink]="templateLink"></editor-header>
+  </div>
+  <div class="html-builder-content">
+    <editor-left-sidebar
+      [isActiveSidebarLayer]="isActiveSidebarLayer"
+      [activeContentComponent]="activeContentComponent"
+      (activeSidebarLayer)="activeSidebarLayer($event)"
+      [contentComponents]="contentComponents">
+    </editor-left-sidebar>
+    <div class="middle-content">
+      <layout-canvas [activeType]="type" [layout]="layout" #LayoutCanvas></layout-canvas>
+    </div>
+    <editor-right-sidebar
+      [activeContentComponent]="activeContentComponent"
+      (updateLanguageLayout)="updateLanguageLayout($event)">
+    </editor-right-sidebar>
+  </div>
+</div>

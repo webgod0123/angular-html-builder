@@ -1,0 +1,203 @@
+<div class="background-position">
+  <div class="background-position-selector">
+    <div class="background-position-selector-row">
+      <button (click)="setPosition(BackgroundPosition.TOP_LEFT)" [ngClass]="{'active': selected(BackgroundPosition.TOP_LEFT)}">
+        <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="9.19207" cy="9.19207" r="1.53191"></circle>
+          <path
+            d="M9.19176 0L6.12793 2.45106H12.2556L9.19176 0ZM9.80453 2.45125H8.579V4.90231H9.80453V2.45125Z"
+            visibility="hidden"
+            data-name="up-arrow"></path>
+          <path
+            d="M9.19203 17.9023L12.2559 15.4513L6.1282 15.4513L9.19203 17.9023ZM8.57925 15.4511L9.80479 15.4511L9.80479 13L8.57925 13L8.57925 15.4511Z"
+            visibility="visible"
+            data-name="bottom-arrow"></path>
+          <path
+            d="M2.45106 8.5791L2.45106 6.1282L3.65358e-08 9.19203L2.45106 12.2559L2.45106 9.80463L4.90204 9.80463L4.90204 8.5791L2.45106 8.5791Z"
+            visibility="hidden"
+            data-name="left-arrow"></path>
+          <path
+            d="M15.9317 9.80469L15.9317 12.2556L18.3828 9.19176L15.9317 6.12793L15.9317 8.57915L13.4807 8.57915L13.4807 9.80469L15.9317 9.80469Z"
+            visibility="visible"
+            data-name="right-arrow"></path>
+        </svg>
+      </button>
+      <button (click)="setPosition(BackgroundPosition.TOP_CENTER)" [ngClass]="{'active': selected(BackgroundPosition.TOP_CENTER)}">
+        <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="9.19207" cy="9.19207" r="1.53191"></circle>
+          <path
+            d="M9.19176 0L6.12793 2.45106H12.2556L9.19176 0ZM9.80453 2.45125H8.579V4.90231H9.80453V2.45125Z"
+            visibility="hidden"
+            data-name="up-arrow"></path>
+          <path
+            d="M9.19203 17.9023L12.2559 15.4513L6.1282 15.4513L9.19203 17.9023ZM8.57925 15.4511L9.80479 15.4511L9.80479 13L8.57925 13L8.57925 15.4511Z"
+            visibility="visible"
+            data-name="bottom-arrow"></path>
+          <path
+            d="M2.45106 8.5791L2.45106 6.1282L3.65358e-08 9.19203L2.45106 12.2559L2.45106 9.80463L4.90204 9.80463L4.90204 8.5791L2.45106 8.5791Z"
+            visibility="visible"
+            data-name="left-arrow"></path>
+          <path
+            d="M15.9317 9.80469L15.9317 12.2556L18.3828 9.19176L15.9317 6.12793L15.9317 8.57915L13.4807 8.57915L13.4807 9.80469L15.9317 9.80469Z"
+            visibility="visible"
+            data-name="right-arrow"></path>
+        </svg>
+      </button>
+      <button (click)="setPosition(BackgroundPosition.TOP_RIGHT)" [ngClass]="{'active': selected(BackgroundPosition.TOP_RIGHT)}">
+        <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="9.19207" cy="9.19207" r="1.53191"></circle>
+          <path
+            d="M9.19176 0L6.12793 2.45106H12.2556L9.19176 0ZM9.80453 2.45125H8.579V4.90231H9.80453V2.45125Z"
+            visibility="hidden"
+            data-name="up-arrow"></path>
+          <path
+            d="M9.19203 17.9023L12.2559 15.4513L6.1282 15.4513L9.19203 17.9023ZM8.57925 15.4511L9.80479 15.4511L9.80479 13L8.57925 13L8.57925 15.4511Z"
+            visibility="visible"
+            data-name="bottom-arrow"></path>
+          <path
+            d="M2.45106 8.5791L2.45106 6.1282L3.65358e-08 9.19203L2.45106 12.2559L2.45106 9.80463L4.90204 9.80463L4.90204 8.5791L2.45106 8.5791Z"
+            visibility="visible"
+            data-name="left-arrow"></path>
+          <path
+            d="M15.9317 9.80469L15.9317 12.2556L18.3828 9.19176L15.9317 6.12793L15.9317 8.57915L13.4807 8.57915L13.4807 9.80469L15.9317 9.80469Z"
+            visibility="hidden"
+            data-name="right-arrow"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="background-position-selector-row">
+      <button (click)="setPosition(BackgroundPosition.CENTER_LEFT)" [ngClass]="{'active': selected(BackgroundPosition.CENTER_LEFT)}">
+        <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="9.19207" cy="9.19207" r="1.53191"></circle>
+          <path
+            d="M9.19176 0L6.12793 2.45106H12.2556L9.19176 0ZM9.80453 2.45125H8.579V4.90231H9.80453V2.45125Z"
+            visibility="visible"
+            data-name="up-arrow"></path>
+          <path
+            d="M9.19203 17.9023L12.2559 15.4513L6.1282 15.4513L9.19203 17.9023ZM8.57925 15.4511L9.80479 15.4511L9.80479 13L8.57925 13L8.57925 15.4511Z"
+            visibility="visible"
+            data-name="bottom-arrow"></path>
+          <path
+            d="M2.45106 8.5791L2.45106 6.1282L3.65358e-08 9.19203L2.45106 12.2559L2.45106 9.80463L4.90204 9.80463L4.90204 8.5791L2.45106 8.5791Z"
+            visibility="hidden"
+            data-name="left-arrow"></path>
+          <path
+            d="M15.9317 9.80469L15.9317 12.2556L18.3828 9.19176L15.9317 6.12793L15.9317 8.57915L13.4807 8.57915L13.4807 9.80469L15.9317 9.80469Z"
+            visibility="visible"
+            data-name="right-arrow"></path>
+        </svg>
+      </button>
+      <button (click)="setPosition(BackgroundPosition.CENTER)" [ngClass]="{'active': selected(BackgroundPosition.CENTER)}">
+        <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="9.19207" cy="9.19207" r="1.53191"></circle>
+          <path
+            d="M9.19176 0L6.12793 2.45106H12.2556L9.19176 0ZM9.80453 2.45125H8.579V4.90231H9.80453V2.45125Z"
+            visibility="visible"
+            data-name="up-arrow"></path>
+          <path
+            d="M9.19203 17.9023L12.2559 15.4513L6.1282 15.4513L9.19203 17.9023ZM8.57925 15.4511L9.80479 15.4511L9.80479 13L8.57925 13L8.57925 15.4511Z"
+            visibility="visible"
+            data-name="bottom-arrow"></path>
+          <path
+            d="M2.45106 8.5791L2.45106 6.1282L3.65358e-08 9.19203L2.45106 12.2559L2.45106 9.80463L4.90204 9.80463L4.90204 8.5791L2.45106 8.5791Z"
+            visibility="visible"
+            data-name="left-arrow"></path>
+          <path
+            d="M15.9317 9.80469L15.9317 12.2556L18.3828 9.19176L15.9317 6.12793L15.9317 8.57915L13.4807 8.57915L13.4807 9.80469L15.9317 9.80469Z"
+            visibility="visible"
+            data-name="right-arrow"></path>
+        </svg>
+      </button>
+      <button (click)="setPosition(BackgroundPosition.CENTER_RIGHT)" [ngClass]="{'active': selected(BackgroundPosition.CENTER_RIGHT)}">
+        <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="9.19207" cy="9.19207" r="1.53191"></circle>
+          <path
+            d="M9.19176 0L6.12793 2.45106H12.2556L9.19176 0ZM9.80453 2.45125H8.579V4.90231H9.80453V2.45125Z"
+            visibility="visible"
+            data-name="up-arrow"></path>
+          <path
+            d="M9.19203 17.9023L12.2559 15.4513L6.1282 15.4513L9.19203 17.9023ZM8.57925 15.4511L9.80479 15.4511L9.80479 13L8.57925 13L8.57925 15.4511Z"
+            visibility="visible"
+            data-name="bottom-arrow"></path>
+          <path
+            d="M2.45106 8.5791L2.45106 6.1282L3.65358e-08 9.19203L2.45106 12.2559L2.45106 9.80463L4.90204 9.80463L4.90204 8.5791L2.45106 8.5791Z"
+            visibility="visible"
+            data-name="left-arrow"></path>
+          <path
+            d="M15.9317 9.80469L15.9317 12.2556L18.3828 9.19176L15.9317 6.12793L15.9317 8.57915L13.4807 8.57915L13.4807 9.80469L15.9317 9.80469Z"
+            visibility="hidden"
+            data-name="right-arrow"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="background-position-selector-row">
+      <button (click)="setPosition(BackgroundPosition.BOTTOM_LEFT)" [ngClass]="{'active': selected(BackgroundPosition.BOTTOM_LEFT)}">
+        <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="9.19207" cy="9.19207" r="1.53191"></circle>
+          <path
+            d="M9.19176 0L6.12793 2.45106H12.2556L9.19176 0ZM9.80453 2.45125H8.579V4.90231H9.80453V2.45125Z"
+            visibility="visible"
+            data-name="up-arrow"></path>
+          <path
+            d="M9.19203 17.9023L12.2559 15.4513L6.1282 15.4513L9.19203 17.9023ZM8.57925 15.4511L9.80479 15.4511L9.80479 13L8.57925 13L8.57925 15.4511Z"
+            visibility="hidden"
+            data-name="bottom-arrow"></path>
+          <path
+            d="M2.45106 8.5791L2.45106 6.1282L3.65358e-08 9.19203L2.45106 12.2559L2.45106 9.80463L4.90204 9.80463L4.90204 8.5791L2.45106 8.5791Z"
+            visibility="hidden"
+            data-name="left-arrow"></path>
+          <path
+            d="M15.9317 9.80469L15.9317 12.2556L18.3828 9.19176L15.9317 6.12793L15.9317 8.57915L13.4807 8.57915L13.4807 9.80469L15.9317 9.80469Z"
+            visibility="visible"
+            data-name="right-arrow"></path>
+        </svg>
+      </button>
+      <button (click)="setPosition(BackgroundPosition.BOTTOM_CENTER)" [ngClass]="{'active': selected(BackgroundPosition.BOTTOM_CENTER)}">
+        <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="9.19207" cy="9.19207" r="1.53191"></circle>
+          <path
+            d="M9.19176 0L6.12793 2.45106H12.2556L9.19176 0ZM9.80453 2.45125H8.579V4.90231H9.80453V2.45125Z"
+            visibility="visible"
+            data-name="up-arrow"></path>
+          <path
+            d="M9.19203 17.9023L12.2559 15.4513L6.1282 15.4513L9.19203 17.9023ZM8.57925 15.4511L9.80479 15.4511L9.80479 13L8.57925 13L8.57925 15.4511Z"
+            visibility="hidden"
+            data-name="bottom-arrow"></path>
+          <path
+            d="M2.45106 8.5791L2.45106 6.1282L3.65358e-08 9.19203L2.45106 12.2559L2.45106 9.80463L4.90204 9.80463L4.90204 8.5791L2.45106 8.5791Z"
+            visibility="visible"
+            data-name="left-arrow"></path>
+          <path
+            d="M15.9317 9.80469L15.9317 12.2556L18.3828 9.19176L15.9317 6.12793L15.9317 8.57915L13.4807 8.57915L13.4807 9.80469L15.9317 9.80469Z"
+            visibility="visible"
+            data-name="right-arrow"></path>
+        </svg>
+      </button>
+      <button (click)="setPosition(BackgroundPosition.BOTTOM_RIGHT)" [ngClass]="{'active': selected(BackgroundPosition.BOTTOM_RIGHT)}">
+        <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="9.19207" cy="9.19207" r="1.53191"></circle>
+          <path
+            d="M9.19176 0L6.12793 2.45106H12.2556L9.19176 0ZM9.80453 2.45125H8.579V4.90231H9.80453V2.45125Z"
+            visibility="visible"
+            data-name="up-arrow"></path>
+          <path
+            d="M9.19203 17.9023L12.2559 15.4513L6.1282 15.4513L9.19203 17.9023ZM8.57925 15.4511L9.80479 15.4511L9.80479 13L8.57925 13L8.57925 15.4511Z"
+            visibility="hidden"
+            data-name="bottom-arrow"></path>
+          <path
+            d="M2.45106 8.5791L2.45106 6.1282L3.65358e-08 9.19203L2.45106 12.2559L2.45106 9.80463L4.90204 9.80463L4.90204 8.5791L2.45106 8.5791Z"
+            visibility="visible"
+            data-name="left-arrow"></path>
+          <path
+            d="M15.9317 9.80469L15.9317 12.2556L18.3828 9.19176L15.9317 6.12793L15.9317 8.57915L13.4807 8.57915L13.4807 9.80469L15.9317 9.80469Z"
+            visibility="hidden"
+            data-name="right-arrow"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="background-position-value">
+    {{position}}
+  </div>
+</div>

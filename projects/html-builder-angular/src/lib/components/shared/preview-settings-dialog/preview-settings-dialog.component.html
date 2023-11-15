@@ -1,0 +1,53 @@
+<dialog-title mat-dialog-close>
+  {{ data.title }}
+</dialog-title>
+
+<mat-dialog-content>
+  <div class="raw">
+    <div>{{ "admin_email_template_type_of_event" | translate }}</div>
+    <div class="raw-content">
+      <div>{{ "admin_email_template_events" | translate }}</div>
+      <div>{{ "admin_email_template_tickets" | translate }}</div>
+    </div>
+  </div>
+  <form [formGroup]="form">
+    <div class="raw-container">
+      <div class="raw" *ngFor="let displayCondition of data.displayConditions">
+        <mat-checkbox class="check-box" [formControlName]="displayCondition" (change)="onEnableEvent(displayCondition)">{{
+          "admin_email_template_" + displayCondition.toLowerCase() | translate
+          }}</mat-checkbox>
+        <div class="raw-condition-content">
+          <div>
+            <input-field
+              [formControlName]="displayCondition + eventsLabel"
+              class="w-auto"
+              [type]="'number'"
+              max="3"
+              [positive]="true"></input-field>
+            <p class="error" *ngIf="hasError(displayCondition + eventsLabel)">
+              {{'label_validation_max_value' | translate: hasError(displayCondition + eventsLabel) ? formError(displayCondition + eventsLabel) : '' }}
+            </p>
+          </div>
+          <div>
+            <input-field
+              [formControlName]="displayCondition + ticketsLabel"
+              class="w-auto"
+              [type]="'number'"
+              max="3"
+              [positive]="true"></input-field>
+            <p class="error" *ngIf="hasError(displayCondition + ticketsLabel)">
+              {{'label_validation_max_value' | translate: hasError(displayCondition + ticketsLabel) ? formError(displayCondition + ticketsLabel) : '' }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions class="dialog-actions">
+  <button class="primary-dialog-button" (click)="onPreview()">
+    {{ data.createTitle }}
+  </button>
+  <button class="secondary-dialog-button" (click)="onDismiss()">{{ "general_lang_cancel" | translate }}</button>
+</mat-dialog-actions>

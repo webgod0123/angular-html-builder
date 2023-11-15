@@ -1,0 +1,85 @@
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/spacing';
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/_colors';
+
+::ng-deep .create-dialog .mat-dialog-container {
+  position: relative;
+  background-color: $blue400;
+  border: 1px solid $neutral900;
+  border-radius: 8px;
+  padding: 0;
+  width: 480px;
+}
+
+::ng-deep .create-dialog .mat-dialog-content {
+  padding: spacing(3);
+  margin: 0;
+  width: 100%;
+}
+
+.dialog-actions {
+  margin: spacing(2) 0 spacing(3);
+  padding: 0;
+  justify-content: center;
+}
+
+.primary-dialog-button {
+  font-family: Inter, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 18px;
+  text-transform: capitalize;
+  color: $neutral900;
+  box-sizing: border-box;
+  background-color: $primary400;
+  border: 1px solid $neutral900;
+  border-radius: 8px;
+  height: 40px;
+  width: 112px;
+  margin-right: spacing(3) !important;
+}
+
+.primary-dialog-button:hover {
+  background-color: $primary100;
+  cursor: pointer;
+}
+
+.primary-dialog-button:active {
+  background-color: $primary900;
+}
+
+.primary-dialog-button:disabled, .primary-dialog-button.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.secondary-dialog-button {
+  font-family: Inter, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 18px;
+  text-transform: capitalize;
+  color: $neutral100;
+  box-sizing: border-box;
+  background-color: $blue900;
+  border: 1px solid $neutral900;
+  border-radius: 8px;
+  height: 40px;
+  width: 112px;
+  margin-left: 0 !important;
+}
+
+.secondary-dialog-button:hover {
+  background-color: $blue300;
+  cursor: pointer;
+}
+
+.secondary-dialog-button:active {
+  background-color: $neutral900;
+}
+
+.secondary-dialog-button:disabled, .secondary-dialog-button.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}

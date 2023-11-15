@@ -1,0 +1,12 @@
+@import 'node_modules/@interticket/editor-ui-kit/src/lib/styles/_colors';
+
+::ng-deep {
+  /* stylelint-disable */
+  @import 'node_modules/codemirror/theme/3024-night';
+  @import 'node_modules/codemirror/lib/codemirror';
+}
+
+:host {
+  width: 100%;
+  border: 1px solid $neutral900;
+}
